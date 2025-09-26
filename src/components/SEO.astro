@@ -60,7 +60,9 @@ const organizationSchema: {
   },
 };
 
-const schemas: Array<typeof organizationSchema | Record<string, any>> = [organizationSchema];
+const schemas: Array<typeof organizationSchema | Record<string, any>> = [
+  organizationSchema,
+];
 if (schema) {
   schemas.push(schema);
 }
@@ -80,7 +82,7 @@ const socialTitle =
 <title>{pageTitle}</title>
 <link rel="canonical" href={canonicalUrl} />
 <meta name="viewport" content="width=device-width" />
-<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="icon" type="image/x-icon" href="/logoheader.ico" />
 <meta name="generator" content={Astro.generator} />
 
 <meta name="description" content={description} />
