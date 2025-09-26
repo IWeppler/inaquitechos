@@ -6,10 +6,15 @@ import partytown from "@astrojs/partytown";
 import react from "@astrojs/react";
 
 export default defineConfig({
-  site: "https://ignacioweppler.com/",
-  integrations: [tailwind(), sitemap(), partytown({
-    config: {
-      forward: ["gtag"],
-    },
-  }), react()],
+  site: "https://inaquitechos.netlify.app",
+  integrations: [
+    tailwind(),
+    sitemap(),
+    partytown({
+      config: {
+        forward: ["gtag"],
+      },
+    }),
+    react(),
+  ],
 });
