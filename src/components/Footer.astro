@@ -1,130 +1,94 @@
 ---
 import { Image } from "astro:assets";
 import logoheader from "../assets/logoheader.png";
+import { Instagram } from "lucide-astro";
+import Whatsapp from "../assets/icons/Whatsapp.astro";
 const today = new Date();
+
+const socialLinks = {
+  instagram: "https://www.instagram.com/techosinaqui",
+  whatsapp: "https://wa.me/5491155913853",
+};
 ---
 
-<footer class="bg-footer-bg text-footer-text">
+<footer class="bg-footer-bg text-footer-text pt-32">
   <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <!-- Columna 1: Logo y descripción -->
-      <div class="space-y-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="md:col-span-2 lg:col-span-2 space-y-4">
         <a href="/">
-          <Image src={logoheader} alt="Logo de la Empresa" class="h-14 w-auto" format="webp" quality={80}/>
+          <Image
+            src={logoheader}
+            alt="Logo Iñaqui Techos"
+            class="h-14 w-auto"
+            format="webp"
+            quality={80}
+          />
         </a>
-        <p class="text-sm">
+        <p class="text-sm max-w-sm">
           Especialistas en la comercialización y distribución de materiales para
           coberturas de techos de alta tecnología.
         </p>
       </div>
 
-      <!-- Columna 2: Links de navegación -->
       <div>
         <h3
-          class="text-sm font-semibold text-footer-heading tracking-wider uppercase"
+          class="font-display text-sm font-semibold text-footer-heading tracking-wider uppercase"
         >
           Navegación
         </h3>
         <ul class="mt-4 space-y-2">
           <li>
-            <a
-              href="/"
-              class="text-base hover:text-white transition-colors duration-300"
+            <a href="/" class="text-base hover:text-white transition-colors"
               >Inicio</a
             >
           </li>
           <li>
             <a
               href="/productos"
-              class="text-base hover:text-white transition-colors duration-300"
-              >Productos</a
+              class="text-base hover:text-white transition-colors">Productos</a
             >
           </li>
           <li>
             <a
               href="/contacto"
-              class="text-base hover:text-white transition-colors duration-300"
-              >Contacto</a
+              class="text-base hover:text-white transition-colors">Contacto</a
             >
           </li>
         </ul>
       </div>
 
-      <!-- Columna 3: Datos de Contacto -->
       <div>
         <h3
-          class="text-sm font-semibold text-footer-heading tracking-wider uppercase"
+          class="font-display text-sm font-semibold text-footer-heading tracking-wider uppercase"
         >
-          Contacto
+          Síguenos
         </h3>
-        <ul class="mt-4 space-y-3">
-          <li class="flex items-start">
-            <svg
-              class="w-5 h-5 text-brand flex-shrink-0 mr-3 mt-1"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-              ><path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-              ></path><path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg
-            >
-            <span
-              >Padre Ashkar 551, (ex Monteagudo) CP 1672, San Martín, Buenos
-              Aires.</span
-            >
-          </li>
-          <li class="flex items-center">
-            <svg
-              class="w-5 h-5 text-brand flex-shrink-0 mr-3"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-              ><path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-              ></path></svg
-            >
-            <span>+54 11 4754 1222</span>
-          </li>
-          <li class="flex items-center">
-            <svg
-              class="w-5 h-5 text-brand flex-shrink-0 mr-3"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-              ><path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-              ></path></svg
-            >
-            <a
-              href="mailto:techos@inaqui.com.ar"
-              class="hover:text-white transition-colors duration-300"
-              >techos@inaqui.com.ar</a
-            >
-          </li>
-        </ul>
+        <div class="flex items-center space-x-4 mt-4">
+          <a
+            href={socialLinks.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:text-white transition-colors"
+          >
+            <span class="sr-only">Instagram</span>
+            <Instagram class="w-6 h-6" />
+          </a>
+          <a
+            href={socialLinks.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:text-white transition-colors"
+          >
+            <span class="sr-only">WhatsApp</span>
+            <Whatsapp />
+          </a>
+        </div>
       </div>
     </div>
 
-    <!-- Barra de Copyright -->
     <div class="mt-8 border-t border-gray-700 pt-8 text-center">
       <p class="text-base">
-        &copy; {today.getFullYear()} Iñaki Techos S.A. Todos los derechos reservados.
+        &copy; {today.getFullYear()} Iñaqui Techos S.A. Todos los derechos reservados.
       </p>
     </div>
   </div>

@@ -1,190 +1,255 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { Image } from "astro:assets";
-import { MessageSquareQuote, Phone, Mail, MapPin } from 'lucide-astro';
-import contactbanner from "../assets/contactbanner.jpg";
+import Layout from "../layouts/Layout.astro";
+import { Phone, Mail, MapPin, Instagram } from "lucide-astro";
+
+const socialLinks = {
+  instagram: "https://www.instagram.com/techosinaqui",
+  whatsapp: "https://wa.me/5491155913853",
+};
 ---
 
 <Layout title="Contacto - Iñaki Techos">
-  <section
-    class="relative h-[60vh] min-h-[500px] flex items-center justify-center text-center overflow-hidden"
-  >
-    <Image
-      src={contactbanner}
-      alt="Techos de alta calidad instalados en una residencia moderna"
-      class="absolute inset-0 w-full h-full object-cover"
-    />
-    <div class="absolute inset-0 bg-gray-900/70"></div>
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-4xl mx-auto">
-        <div
-          class="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-sm font-medium text-white mb-8"
-        >
-          <MessageSquareQuote class="w-4 h-4 mr-2 text-slate-200" />
-          Asesoramiento Especializado
-        </div>
-        <h1
-          class="text-4xl md:text-6xl font-bold tracking-tight text-white mb-6 leading-tight"
-        >
-          Estamos para ayudarte
-        </h1>
-        <p
-          class="text-xl lg:text-2xl text-slate-200 max-w-3xl mx-auto font-light leading-relaxed"
-        >
-          Ponte en contacto con nuestro equipo de especialistas. Te brindaremos
-          asesoramiento personalizado para tu proyecto, sin compromiso.
-        </p>
-      </div>
-    </div>
-  </section>
-
   <div class="bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-      <div class="grid grid-cols-1 lg:grid-cols-5 gap-16">
-        
-        <div class="lg:col-span-2 space-y-12">
-          <div class="border-l-2 pl-6 border-brand">
-            <div class="text-sm font-medium text-gray-500 uppercase tracking-wide mb-2">
-              Distribuye en Argentina
-            </div>
-            <h2 class="text-2xl font-bold text-gray-900 mb-4">
-              IÑAKI TECHOS S.A.
-            </h2>
-            <p class="text-gray-600 leading-relaxed">
-              Especialistas en soluciones de techado con más de 25 años de
-              experiencia en el mercado argentino.
-            </p>
-          </div>
-
-          <div class="space-y-8">
-            <h3 class="text-lg font-semibold text-gray-900">
-              Información de Contacto
-            </h3>
-            <div class="space-y-6">
-              <div class="flex items-start space-x-4">
-                <div class="flex-shrink-0 w-10 h-10 border border-gray-200 rounded-lg flex items-center justify-center">
-                  <Phone class="w-5 h-5 text-brand" />
-                </div>
-                <div>
-                  <div class="text-sm font-medium text-gray-900 mb-1">Teléfonos</div>
-                  <div class="text-gray-600 space-y-1">
-                    <a href="tel:+541147541222" class="block hover:text-brand transition-colors">+54 11 4754 1222</a>
-                    <a href="tel:+541147541224" class="block hover:text-brand transition-colors">+54 11 4754 1224</a>
-                  </div>
-                </div>
-              </div>
-              <div class="flex items-start space-x-4">
-                <div class="flex-shrink-0 w-10 h-10 border border-gray-200 rounded-lg flex items-center justify-center">
-                  <Mail class="w-5 h-5 text-brand" />
-                </div>
-                <div>
-                  <div class="text-sm font-medium text-gray-900 mb-1">Email</div>
-                  <a href="mailto:techos@inaqui.com.ar" class="text-gray-600 border-b border-transparent hover:border-brand transition-colors">
-                    techos@inaqui.com.ar
-                  </a>
-                </div>
-              </div>
-              <div class="flex items-start space-x-4">
-                <div class="flex-shrink-0 w-10 h-10 border border-gray-200 rounded-lg flex items-center justify-center">
-                  <MapPin class="w-5 h-5 text-brand" />
-                </div>
-                <div>
-                  <div class="text-sm font-medium text-gray-900 mb-1">Dirección</div>
-                  <div class="text-gray-600 leading-relaxed">
-                    Padre Ashkar 551, (ex Monteagudo)<br />
-                    CP 1672, San Martín<br />
-                    Buenos Aires, Argentina
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="pt-6 border-t border-gray-200">
-              <div class="text-sm font-medium text-gray-900 mb-3">Horarios de Atención</div>
-              <div class="text-sm text-gray-600 space-y-2">
-                <div class="flex justify-between">
-                  <span>Lunes a Viernes:</span>
-                  <span class="font-medium">8:00 - 17:00 hs</span>
-                </div>
-                <div class="flex justify-between">
-                  <span>Sábados:</span>
-                  <span class="font-medium">8:00 - 13:00 hs</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-10">
+        <!-- Formulario de Contacto (3 columnas) -->
         <div class="lg:col-span-3">
-          <div class="border border-gray-200 rounded-lg p-8">
-            <div class="mb-8">
-              <h3 class="text-2xl font-bold text-gray-900 mb-2">Envíanos un mensaje</h3>
-              <p class="text-gray-600">Completa el formulario y nos pondremos en contacto contigo a la brevedad.</p>
+          <div class="pt-8 px-8 h-full flex flex-col justify-between">
+            <div class="mb-2">
+              <h2
+                class="font-display text-3xl md:text-5xl font-bold text-brand-red mb-2"
+              >
+                Estamos para ayudarte
+              </h2>
+              <p class="text-slate-600 text-xl">
+                Ponte en contacto con nuestro equipo de especialistas. Te
+                brindaremos asesoramiento personalizado para tu proyecto, sin
+                compromiso.
+              </p>
             </div>
 
-            <form name="contacto" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/gracias" class="space-y-6">
+            <form
+              name="contacto"
+              method="POST"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+              action="/gracias"
+              class="space-y-6"
+            >
               <input type="hidden" name="form-name" value="contacto" />
-              <p class="hidden"><label>No rellenes esto: <input name="bot-field" /></label></p>
-              
+              <p class="hidden">
+                <label>No rellenes esto: <input name="bot-field" /></label>
+              </p>
+
               <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Nombre completo *</label>
-                  <input type="text" name="name" id="name" required class="w-full px-4 py-3 bg-slate-100 border border-slate-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-brand focus:border-brand" placeholder="Tu nombre completo" />
+                  <label
+                    for="name"
+                    class="block text-sm font-medium text-slate-700 mb-2"
+                    >Nombre completo *</label
+                  >
+                  <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    required
+                    class="w-full px-4 py-3 bg-slate-100 border border-slate-200 focus:outline-none focus:ring-1 focus:ring-brand focus:border-brand"
+                    placeholder="Tu nombre completo"
+                  />
                 </div>
                 <div>
-                  <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email *</label>
-                  <input type="email" name="email" id="email" required class="w-full px-4 py-3 bg-slate-100 border border-slate-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-brand focus:border-brand" placeholder="tu@email.com" />
-                </div>
-              </div>
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Teléfono *</label>
-                  <input type="tel" name="phone" id="phone" required class="w-full px-4 py-3 bg-slate-100 border border-slate-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-brand focus:border-brand" placeholder="+54 11 1234 5678" />
-                </div>
-                <div>
-                  <label for="city" class="block text-sm font-medium text-gray-700 mb-2">Ciudad</label>
-                  <input type="text" name="city" id="city" class="w-full px-4 py-3 bg-slate-100 border border-slate-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-brand focus:border-brand" placeholder="Tu ciudad" />
+                  <label
+                    for="email"
+                    class="block text-sm font-medium text-slate-700 mb-2"
+                    >Email *</label
+                  >
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    required
+                    class="w-full px-4 py-3 bg-slate-100 border border-slate-200 focus:outline-none focus:ring-1 focus:ring-brand focus:border-brand"
+                    placeholder="tu@email.com"
+                  />
                 </div>
               </div>
               <div>
-                <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Asunto</label>
-                <select name="subject" id="subject" class="w-full px-4 py-3 bg-slate-100 border border-slate-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-brand focus:border-brand">
-                  <option value="">Selecciona un tema</option>
-                  <option value="cotizacion">Solicitud de cotización</option>
-                  <option value="asesoria">Asesoría técnica</option>
-                  <option value="instalacion">Consulta sobre instalación</option>
-                  <option value="garantia">Garantía y servicio post-venta</option>
-                  <option value="otros">Otros</option>
-                </select>
+                <label
+                  for="phone"
+                  class="block text-sm font-medium text-slate-700 mb-2"
+                  >Teléfono *</label
+                >
+                <input
+                  type="tel"
+                  name="phone"
+                  id="phone"
+                  required
+                  class="w-full px-4 py-3 bg-slate-100 border border-slate-200 focus:outline-none focus:ring-1 focus:ring-brand focus:border-brand"
+                  placeholder="+54 11 1234 5678"
+                />
               </div>
               <div>
-                <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Mensaje *</label>
-                <textarea name="message" id="message" rows="5" required class="w-full px-4 py-3 bg-slate-100 border border-slate-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-brand focus:border-brand resize-vertical" placeholder="Describe tu proyecto o consulta..."></textarea>
+                <label
+                  for="message"
+                  class="block text-sm font-medium text-slate-700 mb-2"
+                  >Mensaje *</label
+                >
+                <textarea
+                  name="message"
+                  id="message"
+                  rows="5"
+                  required
+                  class="w-full px-4 py-3 bg-slate-100 border border-slate-200 focus:outline-none focus:ring-1 focus:ring-brand focus:border-brand resize-vertical"
+                  placeholder="Describe tu proyecto o consulta..."></textarea>
               </div>
-              <div class="pt-4 flex items-center justify-between">
-                <span class="text-xs text-gray-500">* Campos obligatorios</span>
-                <button type="submit" class="px-8 py-3 font-medium rounded-lg bg-brand text-white hover:bg-brand-hover transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand">
+              <div class="pt-2 flex items-center justify-between">
+                <span class="text-xs text-slate-500">* Campos obligatorios</span
+                >
+                <button
+                  type="submit"
+                  class="px-8 py-3 font-medium bg-brand text-white hover:bg-brand-hover transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand"
+                >
                   Enviar Mensaje
                 </button>
               </div>
             </form>
           </div>
         </div>
+
+        <!-- Información de Contacto (2 columnas) -->
+        <div class="lg:col-span-2">
+          <div
+            class="bg-brand-hover text-white border border-slate-200 p-8 space-y-12 h-full"
+          >
+            <h3 class="font-display text-3xl md:text-5xl text-center font-bold">
+              Canales de Contacto
+            </h3>
+
+            <!-- Datos de Contacto -->
+            <div class="space-y-10">
+              <div class="flex items-start space-x-4">
+                <div
+                  class="flex-shrink-0 w-10 h-10 bg-white border border-slate-200 flex items-center justify-center"
+                >
+                  <Phone class="w-5 h-5 text-brand" />
+                </div>
+                <div>
+                  <div
+                    class="font-display text-xl md:text-2xl font-semibold text-white mb-1"
+                  >
+                    Teléfonos
+                  </div>
+                  <div class="text-gray-300 space-y-1">
+                    <a
+                      href="tel:+541147541222"
+                      class="block hover:text-white transition-colors"
+                      >+54 11 4754 1222</a
+                    ><a
+                      href="tel:+541147541224"
+                      class="block hover:text-white transition-colors"
+                      >+54 11 4754 1224</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="flex items-start space-x-4">
+                <div
+                  class="flex-shrink-0 w-10 h-10 bg-white border border-slate-200 flex items-center justify-center"
+                >
+                  <Mail class="w-5 h-5 text-brand" />
+                </div>
+                <div>
+                  <div
+                    class="font-display text-xl md:text-2xl font-semibold text-white mb-1"
+                  >
+                    Email
+                  </div>
+                  <a
+                    href="mailto:techos@inaqui.com.ar"
+                    class="text-gray-300 border-b border-transparent hover:border-brand transition-colors"
+                    >techos@inaqui.com.ar</a
+                  >
+                </div>
+              </div>
+              <div class="flex items-start space-x-4">
+                <div
+                  class="flex-shrink-0 w-10 h-10 bg-white border border-slate-200 flex items-center justify-center"
+                >
+                  <MapPin class="w-5 h-5 text-brand" />
+                </div>
+                <div>
+                  <div
+                    class="font-display text-xl md:text-2xl font-semibold text-white mb-1"
+                  >
+                    Dirección
+                  </div>
+                  <div class="text-gray-300 leading-relaxed">
+                    Padre Ashkar 551, (ex Monteagudo)<br />CP 1672, San Martín,
+                    Bs. As.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Redes Sociales -->
+            <div class="pt-6 border-t border-slate-200">
+              <div class="font-display text-xl md:text-2xl font-semibold text-white mb-3">
+                Síguenos
+              </div>
+              <div class="flex items-center space-x-4">
+                <a
+                  href={socialLinks.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="bg-brand-red p-3 text-white hover:bg-brand-hover transition-colors duration-300"
+                  ><span class="sr-only">WhatsApp</span><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="22"
+                    height="22"
+                    fill="currentColor"
+                    class="bi bi-whatsapp"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"
+                    ></path>
+                  </svg></a
+                >
+                <a
+                  href={socialLinks.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="bg-brand-red p-3 text-white hover:bg-brand-hover transition-colors duration-300"
+                  ><span class="sr-only">Instagram</span><Instagram
+                    class="w-6 h-6"
+                  /></a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
+      <!-- Mapa -->
       <div class="mt-24">
         <div class="text-center mb-8">
-          <h3 class="text-3xl font-bold text-gray-900">Nuestra Ubicación</h3>
-          <p class="mt-2 text-lg text-gray-600">Visítanos en nuestra sede en San Martín, Buenos Aires.</p>
+          <h3 class="font-display text-3xl md:text-5xl font-bold text-slate-900">
+            Nuestra Ubicación
+          </h3>
+          <p class="mt-2 text-lg text-slate-600">
+            Visítanos en nuestra sede en San Martín, Buenos Aires.
+          </p>
         </div>
-        <div class="border border-slate-200 rounded-lg overflow-hidden">
-          <iframe 
+        <div class="border border-slate-200 overflow-hidden">
+          <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3285.394988775263!2d-58.55289962426315!3d-34.56891087296718!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb7738f7a6275%3A0x897c72abdaa4efcf!2sP.%20L.%20Ashkar%20551%2C%20B1672ATE%20Villa%20Lynch%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1727311681120!5m2!1ses-419!2sar"
-            width="100%" 
-            height="450" 
-            style="border:0;" 
-            allowfullscreen="" 
-            loading="lazy" 
-            referrerpolicy="no-referrer-when-downgrade">
+            width="100%"
+            height="450"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          >
           </iframe>
         </div>
       </div>

@@ -1,0 +1,33 @@
+---
+import Button from "./ui/button/button.astro";
+---
+
+<section
+  class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+  style="margin-bottom: -75px;"
+>
+  <div class="bg-brand-red shadow-lg">
+    <div
+      class="py-12 px-6 lg:px-16 lg:py-16 lg:flex lg:items-center lg:justify-between"
+    >
+      <div class="text-center lg:text-left">
+        <h2 class="font-display text-3xl font-bold text-white md:text-5xl">
+          <span class="block">¿Listo para comenzar tu próximo proyecto?</span>
+        </h2>
+        <p class="mt-4 text-lg text-red-100 max-w-2xl">
+          Nuestro equipo de expertos está listo para asistirlo en la toma de la
+          mejor decisión para su obra.
+        </p>
+      </div>
+      <div class="mt-8 flex-shrink-0 w-full lg:mt-0 lg:w-auto">
+        <div class="flex justify-center">
+          <Button
+            href="/contacto"
+            text="contactanos"
+            arrowDirection="left"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -7,7 +7,7 @@ interface Props {
 }
 
 const {
-  title = "Iñaki Techos",
+  title = "Iñaqui Techos",
   description = "Empresa especializada en la comercialización y distribución de materiales para coberturas de techos de alta tecnología.",
   image = "/seotechos.jpg",
   schema = null,
@@ -42,7 +42,7 @@ const organizationSchema: {
 } = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Iñaki Techos",
+  name: "Iñaqui Techos",
   url: siteURL ? siteURL.toString() : undefined,
   logo: siteURL ? new URL(image, siteURL).href : image,
   contactPoint: {
@@ -72,10 +72,10 @@ const canonicalUrl = siteURL
   ? new URL(Astro.url.pathname, siteURL).href
   : Astro.url.pathname;
 
-const siteName = "Iñaki Techos";
+const siteName = "Iñaqui Techos";
 const pageTitle = title === siteName ? `${siteName}` : `${title} | ${siteName}`;
 const socialTitle =
-  title === siteName ? "Iñaki Techos - Especialistas en Coberturas" : title;
+  title === siteName ? "Iñaqui Techos - Especialistas en Coberturas" : title;
 ---
 
 <meta charset="UTF-8" />
@@ -89,7 +89,7 @@ const socialTitle =
 <meta name="author" content={siteName} />
 <meta
   name="keywords"
-  content="Iñaki Techos, techos, tejas metálicas, pizarras asfálticas, tilcor, verona, iko, coberturas para techos, Buenos Aires"
+  content="Iñaqui Techos, techos, tejas metálicas, pizarras asfálticas, tilcor, verona, iko, coberturas para techos, Buenos Aires"
 />
 
 <meta property="og:title" content={socialTitle} />

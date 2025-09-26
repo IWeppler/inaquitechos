@@ -1,5 +1,7 @@
+
 import { useState } from "react";
 import ImageSlider from "./ImageSlider";
+
 interface Modelo {
   id: string;
   name: string;
@@ -10,24 +12,27 @@ interface Modelo {
 
 interface ProductTabsProps {
   modelos: Modelo[];
+  title: string;
+  subtitle: string;
+  productName: string;
 }
 
-function ProductTabs({ modelos }: ProductTabsProps) {
+function ProductTabs({ modelos, title, subtitle, productName }: ProductTabsProps) {
   const [activeTabId, setActiveTabId] = useState(modelos[0]?.id || "");
-
   const activeModel = modelos.find((m) => m.id === activeTabId);
 
   return (
-    <section id="modelos" className="py-16 bg-white">
+    <section id="modelos" className="py-24 border-t border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
-            5 Perfiles Distintivos
+        <div className="text-center mb-16">
+          
+          <h2 className="font-display text-3xl font-bold text-gray-900 sm:text-5xl">
+            {title}
           </h2>
-          <p className="mt-4 text-lg text-gray-600">
-            Cada perfil reproduce estilos tradicionales con la resistencia
-            incomparable del acero.
+          <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+            {subtitle}
           </p>
+
         </div>
 
         <div className="border-b border-gray-200">
@@ -52,12 +57,15 @@ function ProductTabs({ modelos }: ProductTabsProps) {
           </nav>
         </div>
 
-        {/* Contenido de la Pestaña Activa */}
-        <div className="mt-8">
+        <div className="mt-12">
           {activeModel && (
             <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
               <div className="order-2 md:order-1">
-                <h3 className="text-2xl font-bold text-gray-800 mb-4">{`Tilcor ${activeModel.name}`}</h3>
+                
+                <h3 className="font-display text-2xl font-bold text-gray-800 mb-4">
+                  {`${productName} ${activeModel.name}`}
+                </h3>
+                
                 <p className="text-gray-600 mb-6 leading-relaxed">
                   {activeModel.description}
                 </p>

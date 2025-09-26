@@ -1,8 +1,14 @@
+import defaultTheme from 'tailwindcss/defaultTheme';
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./src/**/*.{astro,html,js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Inter', ...defaultTheme.fontFamily.sans],
+        display: ['Teko', ...defaultTheme.fontFamily.sans],
+      },
       colors: {
         brand: "#2563eb",
         "brand-hover": "#1d4ed8",

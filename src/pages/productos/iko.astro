@@ -20,7 +20,6 @@ import {
 } from "lucide-astro";
 import ikoManual from "../../assets/pdf/ikoinstalacion.pdf";
 
-
 const ventajas = [
   {
     title: "Instalación Simple",
@@ -81,7 +80,7 @@ const modelos = [
 ---
 
 <Layout
-  title="IKO: Pizarras Asfálticas Canadienses - Iñaki Techos"
+  title="IKO: Pizarras Asfálticas Canadienses - Iñaqui Techos"
   description="Descubra las pizarras asfálticas IKO, la solución líder en Norteamérica para techos duraderos, estéticos y sin mantenimiento. Modelos Marathon y Cambridge."
 >
   <section
@@ -96,7 +95,9 @@ const modelos = [
     <div
       class="relative z-10 text-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
     >
-      <h1 class="text-4xl md:text-5xl font-bold">IKO - Pizarras Asfálticas</h1>
+      <h1 class="font-display text-4xl md:text-7xl font-bold">
+        IKO - Pizarras Asfálticas
+      </h1>
       <p class="mt-4 text-xl text-gray-200 max-w-3xl mx-auto">
         La solución para techos más utilizada en Canadá y EEUU, ahora en
         Argentina. Durabilidad, estética y cero mantenimiento.
@@ -104,50 +105,49 @@ const modelos = [
     </div>
   </section>
 
-<section class="py-16 bg-white">
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 class="text-3xl font-bold text-gray-900 text-center">
-      Tecnología Canadiense para tu Techo
-    </h2>
-    <div class="mt-8 text-gray-700 space-y-4 leading-relaxed">
-      <p>
-        Las pizarras asfálticas IKO son la terminación de techos por
-        excelencia en Norteamérica y Europa. En Iñaqui S.A. proveemos al
-        mercado argentino estos materiales de origen Canadiense, reconocidos
-        por su increíble resistencia y durabilidad.
-      </p>
-      <p>
-        Están compuestas por una base de bitumen con fibras de vidrio
-        entrelazadas y una capa superior de gránulos de cerámica, que le
-        otorgan el color y la protección final. Esta composición flexible
-        ofrece una altísima resistencia al paso del tiempo y a las variaciones
-        de temperatura.
-      </p>
-      <p>
-        Su diseño permite resolver los encuentros en cumbreras y limatesas con
-        la misma placa, eliminando la zinguería tradicional y simplificando la
-        instalación.
-      </p>
-    </div>
+  <section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-display text-3xl sm:text-5xl font-bold text-gray-900 text-center">
+        Tecnología Canadiense para tu Techo
+      </h2>
+      <div class="mt-8 text-gray-700 space-y-4 leading-relaxed">
+        <p>
+          Las pizarras asfálticas IKO son la terminación de techos por
+          excelencia en Norteamérica y Europa. En Iñaqui S.A. proveemos al
+          mercado argentino estos materiales de origen Canadiense, reconocidos
+          por su increíble resistencia y durabilidad.
+        </p>
+        <p>
+          Están compuestas por una base de bitumen con fibras de vidrio
+          entrelazadas y una capa superior de gránulos de cerámica, que le
+          otorgan el color y la protección final. Esta composición flexible
+          ofrece una altísima resistencia al paso del tiempo y a las variaciones
+          de temperatura.
+        </p>
+        <p>
+          Su diseño permite resolver los encuentros en cumbreras y limatesas con
+          la misma placa, eliminando la zinguería tradicional y simplificando la
+          instalación.
+        </p>
+      </div>
 
-    <div class="mt-10 text-center">
-      <a
-        href={ikoManual}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="inline-flex items-center gap-x-3 px-6 py-3 bg-slate-100 text-slate-800 font-semibold rounded-lg border border-slate-200 transition-colors duration-300 hover:bg-slate-200 hover:border-brand"
-      >
-        <FileText class="w-5 h-5" />
-        Ver Manual de Instalación
-      </a>
+      <div class="mt-10 text-center">
+        <a
+          href={ikoManual}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-x-3 px-6 py-3 bg-slate-100 text-slate-800 font-semibold border border-slate-200 transition-colors duration-300 hover:bg-slate-200 hover:border-brand"
+        >
+          <FileText class="w-5 h-5" />
+          Ver Manual de Instalación
+        </a>
+      </div>
     </div>
-    
-  </div>
-</section>
+  </section>
   <section id="ventajas" class="py-24 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl">
+        <h2 class="font-display text-3xl font-bold text-gray-900 sm:text-4xl">
           Beneficios Incomparables
         </h2>
       </div>
@@ -156,13 +156,13 @@ const modelos = [
           ventajas.map((ventaja) => {
             const Icono = ventaja.icon;
             return (
-              <div class="bg-gray-50 p-6 rounded-lg border border-gray-300 hover:border-brand transition-colors duration-300">
+              <div class="bg-gray-50 p-6 border border-gray-300 hover:border-brand transition-colors duration-300">
                 <div class="flex items-center">
                   <div class="bg-brand text-white rounded-full p-3 mr-4 flex-shrink-0">
                     <Icono class="w-6 h-6" />
                   </div>
 
-                  <h3 class="text-xl font-bold text-gray-900">
+                  <h3 class="font-display text-2xl sm:text-3xl font-bold text-gray-900">
                     {ventaja.title}
                   </h3>
                 </div>
@@ -175,7 +175,11 @@ const modelos = [
     </div>
   </section>
 
-  
-
-  <ProductTabs modelos={modelos} client:load />
+  <ProductTabs
+    modelos={modelos}
+    client:load
+    productName="IKO"
+    title="2 Perfiles Disponibles"
+    subtitle="Las pizarras asfálticas IKO ofrecen dos diseños únicos para adaptarse perfectamente a la estética de tu proyecto."
+  />
 </Layout>

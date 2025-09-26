@@ -1,4 +1,4 @@
-import  { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 interface ImageSliderProps {
   images: string[];
@@ -32,10 +32,11 @@ function ImageSlider({ images }: ImageSliderProps) {
   };
 
   return (
-    <div className="relative w-full max-w-lg mx-auto group h-80">
+    <div className="relative w-full group aspect-video">
+      
       <div
         style={{ backgroundImage: `url(${images[currentIndex]})` }}
-        className="w-full h-full rounded-lg bg-center bg-cover duration-500"
+        className="w-full h-full bg-center bg-cover duration-500"
         role="img"
         aria-label={`Imagen ${currentIndex + 1}`}
       />
@@ -45,9 +46,9 @@ function ImageSlider({ images }: ImageSliderProps) {
         type="button"
         onClick={prevSlide}
         aria-label="Anterior"
-        className="hidden group-hover:flex items-center justify-center absolute top-1/2 -translate-y-1/2 left-2 w-10 h-10 rounded-full bg-black/30 text-white cursor-pointer"
+        className="hidden group-hover:flex items-center justify-center absolute top-1/2 -translate-y-1/2 left-3 w-10 h-10 rounded-full bg-black/40 text-white cursor-pointer transition-opacity"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="m15 18-6-6 6-6" />
         </svg>
       </button>
@@ -57,9 +58,9 @@ function ImageSlider({ images }: ImageSliderProps) {
         type="button"
         onClick={nextSlide}
         aria-label="Siguiente"
-        className="hidden group-hover:flex items-center justify-center absolute top-1/2 -translate-y-1/2 right-2 w-10 h-10 rounded-full bg-black/30 text-white cursor-pointer"
+        className="hidden group-hover:flex items-center justify-center absolute top-1/2 -translate-y-1/2 right-3 w-10 h-10 rounded-full bg-black/40 text-white cursor-pointer transition-opacity"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="m9 18 6-6-6-6" />
         </svg>
       </button>
@@ -72,7 +73,7 @@ function ImageSlider({ images }: ImageSliderProps) {
             type="button"
             onClick={() => goToSlide(slideIndex)}
             aria-label={`Ir a la imagen ${slideIndex + 1}`}
-            className={`w-2.5 h-2.5 rounded-full ${currentIndex === slideIndex ? 'bg-white' : 'bg-white/50 hover:bg-white'}`}
+            className={`w-2.5 h-2.5 rounded-full transition-colors ${currentIndex === slideIndex ? 'bg-white' : 'bg-white/50 hover:bg-white'}`}
           />
         ))}
       </div>

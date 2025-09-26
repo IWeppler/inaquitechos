@@ -1,12 +1,13 @@
 ---
 import { Image } from "astro:assets";
+import { Instagram } from "lucide-astro";
 import logoheader from "../assets/logoheader.png";
+import Whatsapp from "../assets/icons/Whatsapp.astro";
 
 const navLinks = [
   { name: "Inicio", href: "/" },
   {
     name: "Productos",
-    href: "/productos",
     dropdown: [
       { name: "Tejas Metálicas TILCOR", href: "/productos/tilcor" },
       { name: "Tejas Metálicas VERONA", href: "/productos/verona" },
@@ -15,107 +16,262 @@ const navLinks = [
   },
   { name: "Contacto", href: "/contacto", isButton: true },
 ];
+
+const socialLinks = {
+  instagram: "https://www.instagram.com/techosinaqui",
+  whatsapp: "https://wa.me/5491155913853",
+};
 ---
 
-<nav class="bg-white shadow-md sticky top-0 z-50">
+<style>
+  .navbar-hidden {
+    transform: translateY(-100%);
+  }
+</style>
+
+<nav
+  id="main-nav"
+  class="bg-white shadow-md sticky top-0 z-50 transition-transform duration-300 ease-in-out"
+>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-20">
       <div class="flex-shrink-0">
         <a href="/">
-          <Image src={logoheader} alt="Logo Iñaki Techos" class="h-12 w-auto" format="webp" quality={80}/>
+          <Image
+            src={logoheader}
+            alt="Logo Iñaqui Techos"
+            class="h-12 w-auto"
+            format="webp"
+            quality={80}
+          />
         </a>
       </div>
 
-      <div class="hidden md:block">
+      <div class="hidden md:flex md:items-center">
         <div class="ml-10 flex items-baseline space-x-4">
-          {navLinks.map((link) => {
-            if (link.dropdown) {
-              return (
-                <div class="relative group">
-                  <a href={link.href} class="text-gray-600 hover:text-brand px-3 py-2 rounded-md text-sm font-medium transition-colors inline-flex items-center">
-                    <span>{link.name}</span>
-                    <svg class="ml-1 h-5 w-5 text-gray-400 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                      <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
-                    </svg>
-                  </a>
-                  <div class="absolute -left-8 mt-2 w-64 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                    <div class="py-1" role="menu">
-                      {link.dropdown.map(item => (
-                        <a href={item.href} class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-brand" role="menuitem">{item.name}</a>
-                      ))}
-                      <div class="border-t border-gray-200 my-1"></div>
-                      <a href="/productos" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-brand font-semibold" role="menuitem">Ver todos los productos</a>
+          {
+            navLinks.map((link) => {
+              if (link.dropdown) {
+                return (
+                  <div class="relative group">
+                    <button
+                      type="button"
+                      class="text-gray-600 hover:text-brand px-3 py-2 text-sm font-medium transition-colors inline-flex items-center focus:outline-none"
+                    >
+                      <span>{link.name}</span>
+                      <svg
+                        class="ml-1 h-5 w-5 text-gray-400 group-hover:text-gray-500"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                    </button>
+                    <div class="absolute -left-8 mt-4 w-64 shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                      <div class="py-1">
+                        {link.dropdown.map((item) => (
+                          <a
+                            href={item.href}
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-brand"
+                          >
+                            {item.name}
+                          </a>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
-              );
-            }
-            if (link.isButton) {
+                );
+              }
+              if (link.isButton) {
+                return (
+                  <a
+                    href={link.href}
+                    class="bg-brand text-white hover:bg-brand-hover px-4 py-2 text-sm font-medium transition-colors"
+                  >
+                    {link.name}
+                  </a>
+                );
+              }
               return (
-                <a href={link.href} class="bg-brand text-white hover:bg-brand-hover px-4 py-2 rounded-md text-sm font-medium transition-colors">
+                <a
+                  href={link.href}
+                  class="text-gray-600 hover:text-brand px-3 py-2 text-sm font-medium transition-colors"
+                >
                   {link.name}
                 </a>
               );
-            }
-            return (
-              <a href={link.href} class="text-gray-600 hover:text-brand px-3 py-2 rounded-md text-sm font-medium transition-colors">
-                {link.name}
-              </a>
-            );
-          })}
+            })
+          }
+        </div>
+        <div
+          class="flex items-center space-x-4 pl-6 ml-6 border-l border-slate-200"
+        >
+          <a
+            href={socialLinks.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-slate-500 hover:text-brand transition-colors"
+            aria-label="WhatsApp"><Whatsapp /></a
+          >
+          <a
+            href={socialLinks.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-slate-500 hover:text-brand transition-colors"
+            aria-label="Instagram"><Instagram class="w-6 h-6" /></a
+          >
         </div>
       </div>
 
       <div class="-mr-2 flex md:hidden">
-        <button type="button" id="mobile-menu-button" class="bg-white inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-brand focus:outline-none" aria-controls="mobile-menu" aria-expanded="false">
+        <button
+          type="button"
+          id="mobile-menu-button"
+          class="bg-white inline-flex items-center justify-center p-2 text-gray-400 hover:text-gray-800 focus:outline-none transition-colors"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+        >
           <span class="sr-only">Abrir menú principal</span>
-          <svg id="hamburger-icon" class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
-          <svg id="close-icon" class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+          <svg
+            id="hamburger-icon"
+            class="block h-6 w-6"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            ><path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"></path></svg
+          >
+          <svg
+            id="close-icon"
+            class="hidden h-6 w-6"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            ><path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"></path></svg
+          >
         </button>
       </div>
     </div>
   </div>
 
-  <div class="hidden md:hidden" id="mobile-menu">
-  <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-    {navLinks.map((link) => {
-      if (link.dropdown) {
-        return (
-          <>
-            <a href={link.href} class="text-gray-600 hover:bg-gray-100 hover:text-brand block px-3 py-2 rounded-md text-base font-medium">Todos los Productos</a>
-            {link.dropdown.map(item => (
-              <a href={item.href} class="text-gray-500 hover:bg-gray-100 hover:text-brand block pl-8 pr-3 py-2 rounded-md text-base font-medium">{item.name}</a>
-            ))}
-          </>
-        )
+  <div
+    class="hidden md:hidden absolute w-full bg-white shadow-lg z-40"
+    id="mobile-menu"
+  >
+    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+      {
+        navLinks.map((link) => {
+          if (link.dropdown) {
+            // CAMBIO 3: El dropdown en móvil ahora solo muestra los productos directamente
+            return (
+              <>
+                {link.dropdown.map((item) => (
+                  <a
+                    href={item.href}
+                    class="text-gray-600 hover:bg-gray-100 hover:text-brand block px-3 py-2 text-base font-medium"
+                  >
+                    {item.name}
+                  </a>
+                ))}
+              </>
+            );
+          }
+          if (link.isButton) {
+            return (
+              <a
+                href={link.href}
+                class="bg-brand text-white hover:bg-brand-hover block px-3 py-2 text-base font-medium mt-2 text-center"
+              >
+                {link.name}
+              </a>
+            );
+          }
+          return (
+            <a
+              href={link.href}
+              class="text-gray-600 hover:bg-gray-100 hover:text-brand block px-3 py-2 text-base font-medium"
+            >
+              {link.name}
+            </a>
+          );
+        })
       }
-      if (link.isButton) {
-        return (
-           <a href={link.href} class="bg-brand text-white hover:bg-brand-hover block px-3 py-2 rounded-md text-base font-medium mt-2">{link.name}</a>
-        )
-      }
-      return (
-        <a href={link.href} class="text-gray-600 hover:bg-gray-100 hover:text-brand block px-3 py-2 rounded-md text-base font-medium">{link.name}</a>
-      )
-    })}
+      <div class="pt-4 mt-4 border-t border-slate-200">
+        <div class="flex items-center justify-center space-x-6">
+          <a
+            href={socialLinks.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-slate-500 hover:text-brand transition-colors"
+            aria-label="WhatsApp"><Whatsapp /></a
+          >
+          <a
+            href={socialLinks.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-slate-500 hover:text-brand transition-colors"
+            aria-label="Instagram"><Instagram class="w-6 h-6" /></a
+          >
+        </div>
+      </div>
+    </div>
   </div>
-</div>
 </nav>
 
 <script>
-  // El script no necesita cambios, funciona perfectamente
+  // --- Lógica para el menú móvil  ---
+
   const mobileMenuButton = document.getElementById("mobile-menu-button");
+
   const mobileMenu = document.getElementById("mobile-menu");
+
   const hamburgerIcon = document.getElementById("hamburger-icon");
+
   const closeIcon = document.getElementById("close-icon");
 
   if (mobileMenuButton && mobileMenu && hamburgerIcon && closeIcon) {
     mobileMenuButton.addEventListener("click", () => {
-      const isExpanded = mobileMenuButton.getAttribute("aria-expanded") === "true";
-      mobileMenuButton.setAttribute("aria-expanded", String(!isExpanded));
-      mobileMenu.classList.toggle("hidden");
+      const isExpanded = mobileMenu.classList.toggle("hidden");
+
+      document.body.style.overflow = isExpanded ? "auto" : "hidden";
+
       hamburgerIcon.classList.toggle("hidden");
+
       closeIcon.classList.toggle("hidden");
+
+      mobileMenuButton.setAttribute("aria-expanded", String(!isExpanded));
+    });
+  } // --- Lógica para ocultar/mostrar navbar al hacer scroll ---
+
+  const nav = document.getElementById("main-nav");
+
+  if (nav) {
+    let lastScrollY = window.scrollY;
+
+    window.addEventListener("scroll", () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY && currentScrollY > 80) {
+        nav.classList.add("navbar-hidden");
+      } else {
+        nav.classList.remove("navbar-hidden");
+      }
+
+      lastScrollY = currentScrollY;
     });
   }
 </script>

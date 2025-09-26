@@ -1,0 +1,55 @@
+---
+import { Image } from "astro:assets";
+import { ArrowRight } from "lucide-astro";
+
+interface Props {
+  href: string;
+  imageSrc: any; 
+  imageAlt: string;
+  title: string;
+  description: string;
+  overlayColorClass?: string; 
+}
+
+const {
+  href,
+  imageSrc,
+  imageAlt,
+  title,
+  description,
+  overlayColorClass = "bg-brand-red/80", 
+} = Astro.props;
+---
+
+<a href={href} class="group relative block h-[500px] overflow-hidden">
+  {/* Capa 1: Imagen de fondo con animación de zoom */}
+  <Image
+    src={imageSrc}
+    alt={imageAlt}
+    class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
+    format="webp"
+    quality={80}
+  />
+  
+  <div class="absolute inset-0 bg-black/40"></div>
+  
+  <div
+    class:list={[
+      "absolute inset-0 opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-100",
+      overlayColorClass,
+    ]}
+  />
+
+  <div class="relative h-full flex flex-col justify-end p-8 text-white">
+    <h3 class="font-display text-4xl md:text-5xl font-extrabold uppercase tracking-tight flex items-center">
+      {title}
+      <ArrowRight class="w-8 h-8 ml-4 transition-transform duration-300 group-hover:translate-x-2" />
+    </h3>
+
+    <div class="mt-4 opacity-0 transition-all duration-500 ease-in-out transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0">
+      <p class="max-w-md">
+        {description}
+      </p>
+    </div>
+  </div>
+</a>

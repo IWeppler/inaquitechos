@@ -125,7 +125,7 @@ const modelos = [
 ---
 
 <Layout
-  title="TILCOR: Tejas de Acero Gravilladas - Iñaki Techos"
+  title="TILCOR: Tejas de Acero Gravilladas - Iñaqui Techos"
   description="Descubra las tejas TILCOR, la combinación perfecta de estética, solidez y durabilidad con alma de acero de Nueva Zelanda y garantía de 50 años."
 >
   <section
@@ -140,7 +140,7 @@ const modelos = [
     <div
       class="relative z-10 text-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
     >
-      <h1 class="text-4xl md:text-5xl font-bold">
+      <h1 class="font-display text-4xl md:text-7xl font-bold">
         TILCOR - Tejas de Acero Gravilladas
       </h1>
       <p class="mt-4 text-xl text-gray-200 max-w-3xl mx-auto">
@@ -151,17 +151,16 @@ const modelos = [
 
     <button
       id="open-modal-button"
-      class="absolute z-10 bottom-8 right-8 bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg flex items-center space-x-2"
+      class="absolute z-10 bottom-8 right-8 rounded-full bg-red-600 hover:bg-red-700 text-white font-bold p-4 flex items-center space-x-2"
     >
       <CirclePlay />
-      <span>Ver video institucional</span>
     </button>
   </section>
 
   <section id="ventajas" class="py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl">
+        <h2 class="font-display text-3xl font-bold text-gray-900 sm:text-6xl">
           Ventajas Insuperables
         </h2>
         <p class="mt-4 text-lg text-gray-600">
@@ -171,19 +170,19 @@ const modelos = [
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {
           ventajas.map((ventaja) => (
-            <div class="p-6 rounded-lg border border-slate-200 hover:border-brand-red transition duration-300">
+            <div class="p-6 border border-slate-200 hover:border-brand-red transition duration-300">
               <div class="flex items-center">
                 <div class="mr-4 flex-shrink-0">
                   <Image
                     src={ventaja.icon}
                     alt={`Icono de ${ventaja.title}`}
-                    class="w-16 h-16 rounded-lg"
+                    class="w-16 h-16"
                     width={120}
                     height={120}
                   />
                 </div>
 
-                <h3 class="text-2xl font-bold text-gray-900">
+                <h3 class="font-display text-2xl sm:text-3xl font-bold text-gray-900">
                   {ventaja.title}
                 </h3>
               </div>
@@ -199,12 +198,13 @@ const modelos = [
     <div
       class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-5 gap-12 items-center"
     >
-      {/* CAMBIO: El texto ahora ocupa 3 columnas para tener más espacio */}
       <div class="md:col-span-3">
         <span class="text-[var(--color-brand)] font-bold uppercase"
           >Tecnología de Punta</span
         >
-        <h2 class="text-3xl font-bold text-gray-900 mt-2">
+        <h2
+          class="font-display text-3xl sm:text-5xl font-bold text-gray-900 mt-2"
+        >
           NZ STEEL - Acero de Nueva Zelanda
         </h2>
         <p class="mt-4 text-gray-700 leading-relaxed">
@@ -219,7 +219,7 @@ const modelos = [
             href={tilcorManual}
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center gap-x-3 px-6 py-3 bg-slate-100 text-slate-800 font-semibold rounded-lg border border-slate-200 transition-colors duration-300 hover:bg-slate-200 hover:border-brand"
+            class="inline-flex items-center gap-x-3 px-6 py-3 bg-slate-100 text-slate-800 font-semibold border border-slate-200 transition-colors duration-300 hover:bg-slate-200 hover:border-brand"
           >
             <Book class="w-5 h-5" />
             Ver Manual
@@ -228,7 +228,7 @@ const modelos = [
             href={tilcorInfo}
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center gap-x-3 px-6 py-3 bg-slate-100 text-slate-800 font-semibold rounded-lg border border-slate-200 transition-colors duration-300 hover:bg-slate-200 hover:border-brand-red"
+            class="inline-flex items-center gap-x-3 px-6 py-3 bg-slate-100 text-slate-800 font-semibold border border-slate-200 transition-colors duration-300 hover:bg-slate-200 hover:border-brand-red"
           >
             <FileText class="w-5 h-5" />
             Info. Técnica
@@ -236,32 +236,34 @@ const modelos = [
         </div>
       </div>
 
-      {
-      
-      }
+      {}
       <div class="md:col-span-2 flex justify-center">
         <img
           src={zincalume.src}
           alt="Capas del Acero Zincalume de Nueva Zelanda"
-          class="rounded-lg shadow-md w-full max-w-sm"
+          class="w-full max-w-sm"
         />
       </div>
     </div>
   </section>
 
-  <ProductTabs modelos={modelos} client:load />
+  <ProductTabs
+    modelos={modelos}
+    client:load
+    productName="Tilcor"
+    title="5 Perfiles Distintivos"
+    subtitle="Cada perfil reproduce estilos tradicionales con la resistencia incomparable del acero de Nueva Zelanda."
+  />
 </Layout>
 
 <div
   id="video-modal"
   class="hidden fixed inset-0 bg-black/80 z-50 justify-center items-center"
 >
-  <div
-    class="relative bg-black w-full max-w-4xl aspect-video rounded-lg shadow-xl"
-  >
+  <div class="relative bg-black w-full max-w-4xl aspect-video">
     <button
       id="close-modal-button"
-      class="absolute -top-4 -right-4 text-white bg-red-600 rounded-full p-2 z-10 hover:scale-110 transition-transform"
+      class="absolute -top-4 -right-4 text-white bg-red-600 rounded-full p-1 z-10 hover:scale-110 transition-transform"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -298,7 +300,7 @@ const modelos = [
   const videoModal = document.getElementById("video-modal");
   const youtubeVideo = document.getElementById(
     "youtube-video"
-  ) as HTMLIFrameElement; // Se asegura el tipo aquí
+  ) as HTMLIFrameElement;
 
   const videoUrl =
     "https://www.youtube.com/embed/3WkzRevaAn4?si=nIMNC7o_JW6zsX9G&autoplay=1";
@@ -307,13 +309,13 @@ const modelos = [
     const openModal = () => {
       youtubeVideo.src = videoUrl;
       videoModal.classList.remove("hidden");
-      videoModal.classList.add("flex"); // CORRECCIÓN 3: 'flex' se añade solo cuando el modal está visible
+      videoModal.classList.add("flex");
     };
 
     const closeModal = () => {
-      youtubeVideo.src = ""; // Detiene el video
+      youtubeVideo.src = "";
       videoModal.classList.add("hidden");
-      videoModal.classList.remove("flex"); // CORRECCIÓN 3: 'flex' se quita cuando se oculta
+      videoModal.classList.remove("flex");
     };
 
     openModalButton.addEventListener("click", openModal);

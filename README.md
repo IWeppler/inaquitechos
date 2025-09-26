@@ -1,6 +1,6 @@
-# Sitio Web Institucional de Iñaki Techos
+# Sitio Web Institucional de Iñaqui Techos
 
-Este repositorio contiene el código fuente del sitio web institucional de Iñaki Techos, desarrollado con Astro.
+Este repositorio contiene el código fuente del sitio web institucional de Iñaqui Techos, desarrollado con Astro.
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/[ID_DE_TU_BADGE_EN_NETLIFY]/deploy-status)](https://app.netlify.com/sites/[NOMBRE_DE_TU_SITIO]/deploys)
 

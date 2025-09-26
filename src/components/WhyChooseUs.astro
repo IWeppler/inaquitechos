@@ -1,0 +1,93 @@
+---
+import { Award, Users, Warehouse, Calculator } from "lucide-astro";
+
+const features = [
+  {
+    title: "25 Años de Trayectoria",
+    description: "Experiencia que garantiza la mejor solución para su obra.",
+    icon: Award,
+  },
+  {
+    title: "Asesoramiento Técnico",
+    description: "Personalizado para profesionales, empresas y particulares.",
+    icon: Users,
+  },
+  {
+    title: "Stock Permanente",
+    description: "Disponibilidad y entrega inmediata en todo el país.",
+    icon: Warehouse,
+  },
+  {
+    title: "Cómputos sin Cargo",
+    description: "Calculamos los materiales exactos para tu proyecto sobre planos.",
+    icon: Calculator,
+  },
+];
+---
+
+<style>
+  .section-with-angled-cuts {
+    position: relative;
+    overflow: hidden; 
+  }
+  
+  /* Corte rectangular inferior izquierda */
+  .section-with-angled-cuts::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 300px;
+    height: 30px;
+    background-color: white; /* Color de la sección de abajo */
+    transform: skew(45deg);
+    transform-origin: bottom left;
+  }
+  
+  /* Corte rectangular superior derecha */
+  .section-with-angled-cuts::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 30px;
+    background-color: white; /* Color de la sección de arriba */
+    transform: skew(45deg);
+    transform-origin: top right;
+  }
+</style>
+
+<section class="section-with-angled-cuts bg-[#f2f5f5] py-24 lg:py-32">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="fade-in-on-scroll text-center mb-16">
+      <h2 class="font-display text-3xl font-bold text-gray-900 sm:text-5xl">
+        ¿Por Qué Elegir Iñaki Techos?
+      </h2>
+      <p class="fade-in-on-scroll mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+        25 años de trayectoria brindando soluciones inteligentes y
+        satisfacción al usuario.
+      </p>
+    </div>
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center"
+    >
+      {features.map((feature) => {
+        const Icono = feature.icon;
+        return (
+          <div class="p-6 fade-in-on-scroll">
+            <div
+              class="bg-brand/10 text-brand border-2 border-brand/20 rounded-xl w-16 h-16 flex items-center justify-center mx-auto mb-6"
+            >
+              <Icono class="w-8 h-8" />
+            </div>
+            <h3 class="text-xl font-bold text-slate-900">{feature.title}</h3>
+            <p class="mt-2 text-slate-600">
+              {feature.description}
+            </p>
+          </div>
+        )
+      })}
+    </div>
+  </div>
+</section>

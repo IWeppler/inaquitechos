@@ -1,58 +1,112 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { ArrowRight, Award  } from "lucide-astro";
-import herobanner from "../assets/herobanner.jpg";
-import bannertilcor from "../assets/bannertilcor.jpg";
-import bannerverona from "../assets/bannerverona.jpg";
+import { Award } from "lucide-astro";
+import ProductCard from "../components/ProductCard.astro";
+import tilcorwelcome from "../assets/tilcorwelcome.webp";
+import tilcobanner2 from "../assets/tilcobanner2.webp";
+import veronabanner2 from "../assets/veronabanner2.webp";
 import ikobanner from "../assets/ikobanner2.webp";
 import { Image } from "astro:assets";
+import Button from "./ui/button/button.astro";
+import WhyChooseUs from "./WhyChooseUs.astro";
 
+const products = [
+  {
+    href: "/productos/tilcor",
+    imageSrc: tilcorwelcome,
+    imageAlt: "Tejas Metálicas TILCOR",
+    title: "TILCOR",
+    description:
+      "Soluciones de acero gravillado de alta gama desde Nueva Zelanda, garantizando durabilidad y una estética superior.",
+    overlayColorClass: "bg-brand/80",
+  },
+  {
+    href: "/productos/verona",
+    imageSrc: veronabanner2,
+    imageAlt: "Tejas Metálicas VERONA",
+    title: "VERONA",
+    description:
+      "Industria Argentina con diseño y tecnología de avanzada para un techo elegante, duradero y adaptado al clima local.",
+    overlayColorClass: "bg-brand-red/80",
+  },
+  {
+    href: "/productos/iko",
+    imageSrc: ikobanner,
+    imageAlt: "Pizarras Asfálticas IKO",
+    title: "IKO",
+    description:
+      "La solución líder en Norteamérica, reconocida por su versatilidad, belleza y cero mantenimiento para todo tipo de proyectos.",
+    overlayColorClass: "bg-gray-800/80",
+  },
+];
 ---
 
 <Layout
-  title="Iñaki Techos - Soluciones de Alta Tecnología para Techos"
+  title="Iñaqui Techos - Soluciones de Alta Tecnología para Techos"
   description="Líderes en la comercialización y distribución de tejas metálicas y pizarras asfálticas de alta calidad. 25 años de experiencia avalan nuestro servicio."
 >
   <section
-    class="relative h-[60vh] min-h-[500px] flex items-center justify-center text-center text-white"
+    class="relative h-screen min-h-[600px] overflow-hidden flex items-center justify-center"
   >
     <Image
-      src={herobanner}
+      src={tilcobanner2}
       alt="Residencia de lujo con un techo moderno y elegante"
-      class="absolute inset-0 w-full h-full object-cover"
+      class="absolute inset-0 w-full h-full object-cover z-0"
     />
-    <div class="absolute inset-0 bg-gray-900/60"></div>
 
-    <div class="relative z-10 p-4">
-      
-      <div
-        class="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-sm font-medium text-white mb-8"
-      >
-        <Award class="w-4 h-4 mr-2 text-slate-200" />
-        Más de 25 años de experiencia
+    <div
+      class="absolute inset-0 z-10
+             bg-white/50 backdrop-blur-sm
+             lg:bg-brand-red lg:backdrop-blur-none lg:w-2/4 lg:origin-top-left lg:skew-x-[-30deg] lg:-ml-20"
+    >
+    </div>
+
+    <div
+      class="relative z-20 w-full h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 items-center"
+    >
+      <div class="text-white lg:text-left text-center py-10 lg:py-0">
+        <div
+          class="inline-flex items-center px-4 py-2 rounded-full backdrop-blur-sm border text-sm font-medium mb-8
+                 bg-slate-900/10 border-slate-900/20 text-slate-800
+                 lg:bg-white/20 lg:border-white/20 lg:text-white"
+        >
+          <Award class="w-4 h-4 mr-2" />
+          Más de 25 años de experiencia
+        </div>
+        <h1
+          class="font-display text-5xl md:text-8xl font-extrabold tracking-tight mb-6 leading-tight
+                 text-slate-900
+                 lg:text-white"
+        >
+          SOLUCIONES INNOVADORAS.
+        </h1>
+        <p
+          class="text-lg md:text-xl max-w-xl mx-auto lg:mx-0 mb-10
+                 text-slate-700
+                 lg:text-slate-100"
+        >
+          Calidad, durabilidad y diseño en tejas metálicas y pizarras asfálticas
+          de las mejores marcas del mundo.
+        </p>
+
+        <div class="fade-in-on-scroll">
+          <Button
+            href="#productos"
+            text="Ver Productos"
+            arrowDirection="left"
+          />
+        </div>
       </div>
 
-      <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-4">
-        Soluciones Innovadoras para su Techo
-      </h1>
-      <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8 text-slate-200">
-        Calidad, durabilidad y diseño en tejas metálicas y pizarras asfálticas
-        de las mejores marcas del mundo.
-      </p>
-      <a
-        href="/contacto"
-        class="bg-brand hover:bg-brand-hover text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300"
-      >
-        Solicitar Asesoramiento
-      </a>
+      <div class="hidden lg:block h-full relative"></div>
     </div>
   </section>
 
   <!-- Products Section -->
-  <section id="productos" class="py-16 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl">
+  <section id="productos" class="py-24 bg-white">
+    <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-in-on-scroll">
+        <h2 class="font-display text-3xl font-bold text-gray-900 sm:text-5xl">
           Nuestras Líneas de Productos
         </h2>
         <p class="mt-4 text-lg text-gray-600">
@@ -60,261 +114,47 @@ import { Image } from "astro:assets";
           internacional y calidad probada.
         </p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div
-          class="bg-gray-50 rounded-lg shadow-md overflow-hidden flex flex-col"
-        >
-          <div class="relative w-full h-48">
-            <Image
-              src={bannertilcor}
-              alt="Tejas Metálicas Gravilladas TILCOR"
-              class="absolute inset-0 w-full h-full object-cover"
-              format="webp" quality={80}
-            />
-            <div class="absolute inset-0 bg-black/50"></div>
-            <div class="relative h-full flex justify-center items-center">
-              <h3
-                class="text-white text-4xl font-bold tracking-widest uppercase"
-              >
-                TILCOR
-              </h3>
-            </div>
-          </div>
-          <div class="p-6 flex flex-col flex-grow">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">
-              Tejas Metálicas Gravilladas TILCOR
-            </h3>
-            <p class="text-gray-700 mb-4 text-sm">
-              Origen Neocelandés. La combinación perfecta de durabilidad, estilo
-              y rendimiento superior.
-            </p>
-            <a
-              href="/productos/tilcor"
-              class="group inline-flex items-center space-x-2 text-brand hover:text-brand-red font-semibold mt-auto"
-            >
-              <span>Ver modelos</span>
-              <ArrowRight
-                class="w-4 h-4 transition-transform duration-300 ease-in-out group-hover:translate-x-2"
-              />
-            </a>
-          </div>
-        </div>
 
-        <div
-          class="bg-gray-50 rounded-lg shadow-md overflow-hidden flex flex-col"
-        >
-          <div class="relative w-full h-48">
-            <Image
-              src={bannerverona}
-              alt="Tejas Metálicas VERONA"
-              class="absolute inset-0 w-full h-full object-cover"
-              format="webp" quality={80}
-            />
-            <div class="absolute inset-0 bg-black/50"></div>
-            <div class="relative h-full flex justify-center items-center">
-              <h3
-                class="text-white text-4xl font-bold tracking-widest uppercase"
-              >
-                VERONA
-              </h3>
-            </div>
-          </div>
-          <div class="p-6 flex flex-col flex-grow">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">
-              Tejas Metálicas VERONA
-            </h3>
-            <p class="text-gray-700 mb-4 text-sm">
-              Industria Argentina. Diseño y tecnología para un techo elegante y
-              resistente a las inclemencias.
-            </p>
-            <a
-              href="/productos/verona"
-              class="group inline-flex items-center space-x-2 text-brand hover:text-brand-red font-semibold mt-auto"
-            >
-              <span>Ver modelos</span>
-              <ArrowRight
-                class="w-4 h-4 transition-transform duration-300 ease-in-out group-hover:translate-x-2"
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {
+          products.map((product) => (
+            <div class="fade-in-on-scroll">
+              <ProductCard
+                href={product.href}
+                imageSrc={product.imageSrc}
+                imageAlt={product.imageAlt}
+                title={product.title}
+                description={product.description}
+                overlayColorClass={product.overlayColorClass}
               />
-            </a>
-          </div>
-        </div>
-
-        <div
-          class="bg-gray-50 rounded-lg shadow-md overflow-hidden flex flex-col"
-        >
-          <div class="relative w-full h-48">
-            <Image
-              src={ikobanner}
-              alt="Pizarras Asfálticas IKO"
-              class="absolute inset-0 w-full h-full object-cover"
-              format="webp" quality={80}
-            />
-            <div class="absolute inset-0 bg-black/50"></div>
-            <div class="relative h-full flex justify-center items-center">
-              <h3
-                class="text-white text-4xl font-bold tracking-widest uppercase"
-              >
-                IKO
-              </h3>
             </div>
-          </div>
-          <div class="p-6 flex flex-col flex-grow">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">
-              Pizarras Asfálticas IKO
-            </h3>
-            <p class="text-gray-700 mb-4 text-sm">
-              Origen Canadiense. Versatilidad y belleza para proyectos
-              residenciales y comerciales.
-            </p>
-            <a
-              href="/productos/iko"
-              class="group inline-flex items-center space-x-2 text-brand hover:text-brand-red font-semibold mt-auto"
-            >
-              <span>Ver modelos</span>
-              <ArrowRight
-                class="w-4 h-4 transition-transform duration-300 ease-in-out group-hover:translate-x-2"
-              />
-            </a>
-          </div>
-        </div>
+          ))
+        }
       </div>
     </div>
   </section>
 
   <!-- Why Choose Us Section -->
-  <section class="bg-gray-100 py-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl">
-          ¿Por Qué Elegir Iñaki Techos?
-        </h2>
-        <p class="mt-4 text-lg text-gray-600">
-          25 años de trayectoria brindando soluciones inteligentes y
-          satisfacción al usuario.
-        </p>
-      </div>
-      <div
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center"
-      >
-        <!-- Feature 1 -->
-        <div class="p-6">
-          <div
-            class="bg-brand text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4"
-          >
-            <svg
-              class="w-8 h-8"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-              ><path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
-              ></path></svg
-            >
-          </div>
-          <h3 class="text-lg font-bold">25 Años de Trayectoria</h3>
-          <p class="mt-2 text-gray-600">
-            Experiencia que garantiza la mejor solución para su obra.
-          </p>
-        </div>
-        <!-- Feature 2 -->
-        <div class="p-6">
-          <div
-            class="bg-brand text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4"
-          >
-            <svg
-              class="w-8 h-8"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-              ><path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-              ></path></svg
-            >
-          </div>
-          <h3 class="text-lg font-bold">Asesoramiento Técnico</h3>
-          <p class="mt-2 text-gray-600">
-            Personalizado para profesionales, empresas y particulares.
-          </p>
-        </div>
-        <!-- Feature 3 -->
-        <div class="p-6">
-          <div
-            class="bg-brand text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4"
-          >
-            <svg
-              class="w-8 h-8"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-              ><path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-              ></path></svg
-            >
-          </div>
-          <h3 class="text-lg font-bold">Stock Permanente</h3>
-          <p class="mt-2 text-gray-600">
-            Disponibilidad y entrega inmediata en todo el país.
-          </p>
-        </div>
-        <!-- Feature 4 -->
-        <div class="p-6">
-          <div
-            class="bg-brand text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4"
-          >
-            <svg
-              class="w-8 h-8"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-              ><path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-              ></path></svg
-            >
-          </div>
-          <h3 class="text-lg font-bold">Cómputos sin Cargo</h3>
-          <p class="mt-2 text-gray-600">
-            Calculamos los materiales exactos para tu proyecto sobre planos.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <WhyChooseUs />
 
   {/* --- SECCIÓN DE CLIENTES --- */}
   <section class="bg-white py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center">
-        <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl">
+      <div class="fade-in-on-scroll text-center">
+        <h2 class="font-display text-3xl font-bold text-gray-900 sm:text-5xl">
           Confían en Nosotros
         </h2>
-        <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600">
+        <p
+          class="fade-in-on-scroll mt-4 max-w-2xl mx-auto text-lg text-gray-600"
+        >
           Grandes empresas, cadenas de hoteles y constructoras de renombre
           eligen nuestras soluciones para sus proyectos más importantes.
         </p>
       </div>
 
       {/* Contenedor de Logos */}
-      <div class="mt-12 flow-root">
+      <div class="mt-12 flow-root fade-in-on-scroll">
         <div class="-mt-4 -ml-8 flex flex-wrap justify-center lg:-ml-4">
-          {
-            /* Aquí es donde pones cada logo. He seleccionado los más impactantes de tu lista. */
-          }
           <div
             class="mt-4 ml-8 flex flex-shrink-0 flex-grow justify-center lg:ml-4 lg:flex-grow-0"
           >
@@ -376,25 +216,6 @@ import { Image } from "astro:assets";
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Final CTA Section -->
-  <section class="bg-brand">
-    <div class="max-w-4xl mx-auto text-center py-16 px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl font-bold text-white sm:text-4xl">
-        <span class="block">¿Listo para comenzar su próximo proyecto?</span>
-      </h2>
-      <p class="mt-4 text-lg leading-6 text-indigo-200">
-        Nuestro equipo de expertos está listo para asistirlo en la toma de la
-        mejor decisión para su obra.
-      </p>
-      <a
-        href="/contacto"
-        class="mt-8 w-full inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-brand bg-white hover:bg-indigo-50 sm:w-auto"
-      >
-        Contactar Ahora
-      </a>
     </div>
   </section>
 </Layout>

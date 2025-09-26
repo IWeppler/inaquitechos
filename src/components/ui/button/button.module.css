@@ -1,0 +1,57 @@
+.ctaButton {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: stretch;
+  font-weight: 700;
+  font-size: 1.125rem;
+  text-decoration: none;
+}
+
+.arrowWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem; /* p-4 */
+  background-color: white;
+  z-index: 2;
+}
+
+.textContent {
+  position: relative;
+  padding: 1rem 1.5rem; /* py-4 px-6 */
+  background-color: #f3f4f6; /* gris inicial */
+  color: #1f2937; /* gris-800 */
+  z-index: 2;
+  overflow: hidden;
+}
+
+/* Pseudo-elemento para el "barrido" */
+.textContent::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: white;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease-in-out;
+  z-index: 1;
+}
+
+.ctaButton:hover .textContent::before {
+  transform: scaleX(1);
+}
+
+.textContent span,
+.textContent {
+  position: relative;
+  z-index: 2;
+}
+
+.arrowWrapper svg {
+  transition: transform 0.3s ease-in-out;
+}
+
+.ctaButton:hover .arrowWrapper svg {
+  transform: translateX(5px);
+}
