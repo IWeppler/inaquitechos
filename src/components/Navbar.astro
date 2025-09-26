@@ -1,0 +1,121 @@
+---
+import { Image } from "astro:assets";
+import logoheader from "../assets/logoheader.png";
+
+const navLinks = [
+  { name: "Inicio", href: "/" },
+  {
+    name: "Productos",
+    href: "/productos",
+    dropdown: [
+      { name: "Tejas Metálicas TILCOR", href: "/productos/tilcor" },
+      { name: "Tejas Metálicas VERONA", href: "/productos/verona" },
+      { name: "Pizarras Asfálticas IKO", href: "/productos/iko" },
+    ],
+  },
+  { name: "Contacto", href: "/contacto", isButton: true },
+];
+---
+
+<nav class="bg-white shadow-md sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      <div class="flex-shrink-0">
+        <a href="/">
+          <Image src={logoheader} alt="Logo Iñaki Techos" class="h-12 w-auto" format="webp" quality={80}/>
+        </a>
+      </div>
+
+      <div class="hidden md:block">
+        <div class="ml-10 flex items-baseline space-x-4">
+          {navLinks.map((link) => {
+            if (link.dropdown) {
+              return (
+                <div class="relative group">
+                  <a href={link.href} class="text-gray-600 hover:text-brand px-3 py-2 rounded-md text-sm font-medium transition-colors inline-flex items-center">
+                    <span>{link.name}</span>
+                    <svg class="ml-1 h-5 w-5 text-gray-400 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                      <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                    </svg>
+                  </a>
+                  <div class="absolute -left-8 mt-2 w-64 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                    <div class="py-1" role="menu">
+                      {link.dropdown.map(item => (
+                        <a href={item.href} class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-brand" role="menuitem">{item.name}</a>
+                      ))}
+                      <div class="border-t border-gray-200 my-1"></div>
+                      <a href="/productos" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-brand font-semibold" role="menuitem">Ver todos los productos</a>
+                    </div>
+                  </div>
+                </div>
+              );
+            }
+            if (link.isButton) {
+              return (
+                <a href={link.href} class="bg-brand text-white hover:bg-brand-hover px-4 py-2 rounded-md text-sm font-medium transition-colors">
+                  {link.name}
+                </a>
+              );
+            }
+            return (
+              <a href={link.href} class="text-gray-600 hover:text-brand px-3 py-2 rounded-md text-sm font-medium transition-colors">
+                {link.name}
+              </a>
+            );
+          })}
+        </div>
+      </div>
+
+      <div class="-mr-2 flex md:hidden">
+        <button type="button" id="mobile-menu-button" class="bg-white inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-brand focus:outline-none" aria-controls="mobile-menu" aria-expanded="false">
+          <span class="sr-only">Abrir menú principal</span>
+          <svg id="hamburger-icon" class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+          <svg id="close-icon" class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="hidden md:hidden" id="mobile-menu">
+  <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+    {navLinks.map((link) => {
+      if (link.dropdown) {
+        return (
+          <>
+            <a href={link.href} class="text-gray-600 hover:bg-gray-100 hover:text-brand block px-3 py-2 rounded-md text-base font-medium">Todos los Productos</a>
+            {link.dropdown.map(item => (
+              <a href={item.href} class="text-gray-500 hover:bg-gray-100 hover:text-brand block pl-8 pr-3 py-2 rounded-md text-base font-medium">{item.name}</a>
+            ))}
+          </>
+        )
+      }
+      if (link.isButton) {
+        return (
+           <a href={link.href} class="bg-brand text-white hover:bg-brand-hover block px-3 py-2 rounded-md text-base font-medium mt-2">{link.name}</a>
+        )
+      }
+      return (
+        <a href={link.href} class="text-gray-600 hover:bg-gray-100 hover:text-brand block px-3 py-2 rounded-md text-base font-medium">{link.name}</a>
+      )
+    })}
+  </div>
+</div>
+</nav>
+
+<script>
+  // El script no necesita cambios, funciona perfectamente
+  const mobileMenuButton = document.getElementById("mobile-menu-button");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const hamburgerIcon = document.getElementById("hamburger-icon");
+  const closeIcon = document.getElementById("close-icon");
+
+  if (mobileMenuButton && mobileMenu && hamburgerIcon && closeIcon) {
+    mobileMenuButton.addEventListener("click", () => {
+      const isExpanded = mobileMenuButton.getAttribute("aria-expanded") === "true";
+      mobileMenuButton.setAttribute("aria-expanded", String(!isExpanded));
+      mobileMenu.classList.toggle("hidden");
+      hamburgerIcon.classList.toggle("hidden");
+      closeIcon.classList.toggle("hidden");
+    });
+  }
+</script>

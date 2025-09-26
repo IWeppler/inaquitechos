@@ -1,0 +1,327 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { CirclePlay, FileText, Book } from "lucide-astro";
+import classiclisbon from "../../assets/classiclisbon.jpg";
+import tudor from "../../assets/tudor.jpg";
+import bond01 from "../../assets/bond01.jpg";
+import bond02 from "../../assets/bond02.jpg";
+import bond03 from "../../assets/bond03.jpg";
+import bond04 from "../../assets/bond04.jpg";
+import bond05 from "../../assets/bond05.jpg";
+import shake01 from "../../assets/shake01.jpg";
+import shake02 from "../../assets/shake02.jpg";
+import shake03 from "../../assets/shake03.jpg";
+import shake04 from "../../assets/shake04.jpg";
+import shake05 from "../../assets/shake05.jpg";
+import tilcornegro1 from "../../assets/tilcornegro1.jpg";
+import tilcornegro2 from "../../assets/tilcornegro2.jpg";
+import tilcornegro3 from "../../assets/tilcornegro3.jpg";
+import tilcornegro4 from "../../assets/tilcornegro4.jpg";
+import tilcornegro5 from "../../assets/tilcornegro5.jpg";
+import tilcornegro6 from "../../assets/tilcornegro6.jpg";
+import zincalume from "../../assets/zincalume.jpg";
+import tilcobanner2 from "../../assets/tilcobanner2.webp";
+import ProductTabs from "../../components/ModelosTab.tsx";
+
+import icon1 from "../../assets/icons/1.jpg";
+import icon2 from "../../assets/icons/2.jpg";
+import icon3 from "../../assets/icons/3.jpg";
+import icon4 from "../../assets/icons/4.jpg";
+import icon5 from "../../assets/icons/5.jpg";
+import icon6 from "../../assets/icons/6.jpg";
+import { Image } from "astro:assets";
+
+import tilcorInfo from "../../assets/pdf/tilcorinfo.pdf";
+import tilcorManual from "../../assets/pdf/tilcorinstalacion.pdf";
+
+const ventajas = [
+  {
+    title: "Seguridad Climática",
+    description:
+      "Protección garantizada en cualquier tipo de clima, desde calor intenso hasta fuertes vientos.",
+    icon: icon1,
+  },
+  {
+    title: "Anti-Granizo",
+    description:
+      "Alta resistencia al impacto directo de granizo, comprobada en tormentas severas.",
+    icon: icon2,
+  },
+  {
+    title: "Soporte de Nieve",
+    description:
+      "No se quiebran ni se doblan, incluso bajo cargas importantes de nieve.",
+    icon: icon3,
+  },
+  {
+    title: "Ultra Livianas",
+    description:
+      "Con solo 7 Kg./m², reduce costos en estructura, transporte y mano de obra.",
+    icon: icon4,
+  },
+  {
+    title: "Anti-Óxido",
+    description:
+      "Ideales para zonas costeras, no les afectan los ambientes salitrosos. Garantía de 50 años.",
+    icon: icon5,
+  },
+  {
+    title: "Ignífugas",
+    description:
+      "Totalmente incombustibles por su composición de acero y piedra.",
+    icon: icon6,
+  },
+];
+
+const modelos = [
+  {
+    name: "Classic",
+    id: "classic",
+    images: [
+      tilcornegro1.src,
+      tilcornegro2.src,
+      tilcornegro3.src,
+      tilcornegro4.src,
+      tilcornegro5.src,
+      tilcornegro6.src,
+    ],
+    description:
+      "Se adaptan fácilmente a diferentes estilos por su diseño similar a las tejas cementicias tradicionales, con la ventaja de su bajo peso. Cada panel es prensado en acero Zincalume, otorgando alta resistencia.",
+    colors: ["Negro"],
+  },
+  {
+    name: "Antica",
+    id: "antica",
+    images: [classiclisbon.src],
+    description:
+      "Modelo de gran fortaleza y clásica elegancia, que realza el estilo de la teja Mediterránea. Una elección ideal para viviendas y otras construcciones.",
+    colors: ["Lisbon"],
+  },
+  {
+    name: "Shake",
+    id: "shake",
+    images: [shake01.src, shake02.src, shake03.src, shake04.src, shake05.src],
+    description:
+      "Con el aspecto de las tejuelas tradicionales de Alerce, que se pintaban de negro en zonas de nieve, su exclusivo diseño rememora la veta de la madera envejecida.",
+    colors: ["Negro"],
+  },
+  {
+    name: "Bond",
+    id: "bond",
+    images: [bond01.src, bond02.src, bond03.src, bond04.src, bond05.src],
+    description:
+      "Diseñado para un solape extremadamente resistente. Reforzado con estructura de acero entrelazada, las tejas se entrecruzan otorgando un agradable aspecto estético.",
+    colors: ["Negro", "Azul", "Verde", "Rojo"],
+  },
+  {
+    name: "Tudor",
+    id: "tudor",
+    images: [tudor.src],
+    description:
+      "Refleja la apariencia de la teja cerámica, con amplias ventajas debido a su bajo peso y alta resistencia al impacto.",
+    colors: ["Negro"],
+  },
+];
+---
+
+<Layout
+  title="TILCOR: Tejas de Acero Gravilladas - Iñaki Techos"
+  description="Descubra las tejas TILCOR, la combinación perfecta de estética, solidez y durabilidad con alma de acero de Nueva Zelanda y garantía de 50 años."
+>
+  <section
+    class="relative h-[50vh] min-h-[400px] flex items-center justify-center text-white"
+  >
+    <div
+      class="absolute inset-0 bg-cover bg-center"
+      style={`background-image: url(${tilcobanner2.src})`}
+    >
+    </div>
+    <div class="absolute inset-0 bg-black/60"></div>
+    <div
+      class="relative z-10 text-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+    >
+      <h1 class="text-4xl md:text-5xl font-bold">
+        TILCOR - Tejas de Acero Gravilladas
+      </h1>
+      <p class="mt-4 text-xl text-gray-200 max-w-3xl mx-auto">
+        La combinación perfecta de estética, solidez y durabilidad con
+        tecnología de Nueva Zelanda.
+      </p>
+    </div>
+
+    <button
+      id="open-modal-button"
+      class="absolute z-10 bottom-8 right-8 bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg flex items-center space-x-2"
+    >
+      <CirclePlay />
+      <span>Ver video institucional</span>
+    </button>
+  </section>
+
+  <section id="ventajas" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl">
+          Ventajas Insuperables
+        </h2>
+        <p class="mt-4 text-lg text-gray-600">
+          Diseñadas para un rendimiento superior contra climas extremos.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {
+          ventajas.map((ventaja) => (
+            <div class="p-6 rounded-lg border border-slate-200 hover:border-brand-red transition duration-300">
+              <div class="flex items-center">
+                <div class="mr-4 flex-shrink-0">
+                  <Image
+                    src={ventaja.icon}
+                    alt={`Icono de ${ventaja.title}`}
+                    class="w-16 h-16 rounded-lg"
+                    width={120}
+                    height={120}
+                  />
+                </div>
+
+                <h3 class="text-2xl font-bold text-gray-900">
+                  {ventaja.title}
+                </h3>
+              </div>
+              <p class="text-md mt-4 text-gray-700">{ventaja.description}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-gray-100 py-24">
+    <div
+      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-5 gap-12 items-center"
+    >
+      {/* CAMBIO: El texto ahora ocupa 3 columnas para tener más espacio */}
+      <div class="md:col-span-3">
+        <span class="text-[var(--color-brand)] font-bold uppercase"
+          >Tecnología de Punta</span
+        >
+        <h2 class="text-3xl font-bold text-gray-900 mt-2">
+          NZ STEEL - Acero de Nueva Zelanda
+        </h2>
+        <p class="mt-4 text-gray-700 leading-relaxed">
+          Utilizamos Zincalume® AZ150, uno de los aceros de más alta calidad a
+          nivel mundial. Esta base de acero estructural ultraliviano, revestida
+          con gravilla de piedra y un sellado acrílico, ofrece una garantía de
+          por vida contra el óxido.
+        </p>
+
+        <div class="mt-8 flex items-center gap-4">
+          <a
+            href={tilcorManual}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-x-3 px-6 py-3 bg-slate-100 text-slate-800 font-semibold rounded-lg border border-slate-200 transition-colors duration-300 hover:bg-slate-200 hover:border-brand"
+          >
+            <Book class="w-5 h-5" />
+            Ver Manual
+          </a>
+          <a
+            href={tilcorInfo}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-x-3 px-6 py-3 bg-slate-100 text-slate-800 font-semibold rounded-lg border border-slate-200 transition-colors duration-300 hover:bg-slate-200 hover:border-brand-red"
+          >
+            <FileText class="w-5 h-5" />
+            Info. Técnica
+          </a>
+        </div>
+      </div>
+
+      {
+      
+      }
+      <div class="md:col-span-2 flex justify-center">
+        <img
+          src={zincalume.src}
+          alt="Capas del Acero Zincalume de Nueva Zelanda"
+          class="rounded-lg shadow-md w-full max-w-sm"
+        />
+      </div>
+    </div>
+  </section>
+
+  <ProductTabs modelos={modelos} client:load />
+</Layout>
+
+<div
+  id="video-modal"
+  class="hidden fixed inset-0 bg-black/80 z-50 justify-center items-center"
+>
+  <div
+    class="relative bg-black w-full max-w-4xl aspect-video rounded-lg shadow-xl"
+  >
+    <button
+      id="close-modal-button"
+      class="absolute -top-4 -right-4 text-white bg-red-600 rounded-full p-2 z-10 hover:scale-110 transition-transform"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="w-6 h-6"
+        ><line x1="18" y1="6" x2="6" y2="18"></line><line
+          x1="6"
+          y1="6"
+          x2="18"
+          y2="18"></line></svg
+      >
+    </button>
+    <iframe
+      id="youtube-video"
+      class="w-full h-full rounded-lg"
+      src=""
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen></iframe>
+  </div>
+</div>
+
+<script>
+  const openModalButton = document.getElementById("open-modal-button");
+  const closeModalButton = document.getElementById("close-modal-button");
+  const videoModal = document.getElementById("video-modal");
+  const youtubeVideo = document.getElementById(
+    "youtube-video"
+  ) as HTMLIFrameElement; // Se asegura el tipo aquí
+
+  const videoUrl =
+    "https://www.youtube.com/embed/3WkzRevaAn4?si=nIMNC7o_JW6zsX9G&autoplay=1";
+
+  if (openModalButton && closeModalButton && videoModal && youtubeVideo) {
+    const openModal = () => {
+      youtubeVideo.src = videoUrl;
+      videoModal.classList.remove("hidden");
+      videoModal.classList.add("flex"); // CORRECCIÓN 3: 'flex' se añade solo cuando el modal está visible
+    };
+
+    const closeModal = () => {
+      youtubeVideo.src = ""; // Detiene el video
+      videoModal.classList.add("hidden");
+      videoModal.classList.remove("flex"); // CORRECCIÓN 3: 'flex' se quita cuando se oculta
+    };
+
+    openModalButton.addEventListener("click", openModal);
+    closeModalButton.addEventListener("click", closeModal);
+    videoModal.addEventListener("click", (event) => {
+      if (event.target === videoModal) {
+        closeModal();
+      }
+    });
+  }
+</script>

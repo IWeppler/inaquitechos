@@ -1,210 +1,400 @@
 ---
-import astroLogo from '../assets/astro.svg';
-import background from '../assets/background.svg';
+import Layout from "../layouts/Layout.astro";
+import { ArrowRight, Award  } from "lucide-astro";
+import herobanner from "../assets/herobanner.jpg";
+import bannertilcor from "../assets/bannertilcor.jpg";
+import bannerverona from "../assets/bannerverona.jpg";
+import ikobanner from "../assets/ikobanner2.webp";
+import { Image } from "astro:assets";
+
 ---
 
-<div id="container">
-	<img id="background" src={background.src} alt="" fetchpriority="high" />
-	<main>
-		<section id="hero">
-			<a href="https://astro.build"
-				><img src={astroLogo.src} width="115" height="48" alt="Astro Homepage" /></a
-			>
-			<h1>
-				To get started, open the <code><pre>src/pages</pre></code> directory in your project.
-			</h1>
-			<section id="links">
-				<a class="button" href="https://docs.astro.build">Read our docs</a>
-				<a href="https://astro.build/chat"
-					>Join our Discord <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.14 96.36"
-						><path
-							fill="currentColor"
-							d="M107.7 8.07A105.15 105.15 0 0 0 81.47 0a72.06 72.06 0 0 0-3.36 6.83 97.68 97.68 0 0 0-29.11 0A72.37 72.37 0 0 0 45.64 0a105.89 105.89 0 0 0-26.25 8.09C2.79 32.65-1.71 56.6.54 80.21a105.73 105.73 0 0 0 32.17 16.15 77.7 77.7 0 0 0 6.89-11.11 68.42 68.42 0 0 1-10.85-5.18c.91-.66 1.8-1.34 2.66-2a75.57 75.57 0 0 0 64.32 0c.87.71 1.76 1.39 2.66 2a68.68 68.68 0 0 1-10.87 5.19 77 77 0 0 0 6.89 11.1 105.25 105.25 0 0 0 32.19-16.14c2.64-27.38-4.51-51.11-18.9-72.15ZM42.45 65.69C36.18 65.69 31 60 31 53s5-12.74 11.43-12.74S54 46 53.89 53s-5.05 12.69-11.44 12.69Zm42.24 0C78.41 65.69 73.25 60 73.25 53s5-12.74 11.44-12.74S96.23 46 96.12 53s-5.04 12.69-11.43 12.69Z"
-						></path></svg
-					>
-				</a>
-			</section>
-		</section>
-	</main>
+<Layout
+  title="Iñaki Techos - Soluciones de Alta Tecnología para Techos"
+  description="Líderes en la comercialización y distribución de tejas metálicas y pizarras asfálticas de alta calidad. 25 años de experiencia avalan nuestro servicio."
+>
+  <section
+    class="relative h-[60vh] min-h-[500px] flex items-center justify-center text-center text-white"
+  >
+    <Image
+      src={herobanner}
+      alt="Residencia de lujo con un techo moderno y elegante"
+      class="absolute inset-0 w-full h-full object-cover"
+    />
+    <div class="absolute inset-0 bg-gray-900/60"></div>
 
-	<a href="https://astro.build/blog/astro-5/" id="news" class="box">
-		<svg width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg"
-			><path
-				d="M24.667 12c1.333 1.414 2 3.192 2 5.334 0 4.62-4.934 5.7-7.334 12C18.444 28.567 18 27.456 18 26c0-4.642 6.667-7.053 6.667-14Zm-5.334-5.333c1.6 1.65 2.4 3.43 2.4 5.333 0 6.602-8.06 7.59-6.4 17.334C13.111 27.787 12 25.564 12 22.666c0-4.434 7.333-8 7.333-16Zm-6-5.333C15.111 3.555 16 5.556 16 7.333c0 8.333-11.333 10.962-5.333 22-3.488-.774-6-4-6-8 0-8.667 8.666-10 8.666-20Z"
-				fill="#111827"></path></svg
-		>
-		<h2>What's New in Astro 5.0?</h2>
-		<p>
-			From content layers to server islands, click to learn more about the new features and
-			improvements in Astro 5.0
-		</p>
-	</a>
-</div>
+    <div class="relative z-10 p-4">
+      
+      <div
+        class="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-sm font-medium text-white mb-8"
+      >
+        <Award class="w-4 h-4 mr-2 text-slate-200" />
+        Más de 25 años de experiencia
+      </div>
 
-<style>
-	#background {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		z-index: -1;
-		filter: blur(100px);
-	}
+      <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-4">
+        Soluciones Innovadoras para su Techo
+      </h1>
+      <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8 text-slate-200">
+        Calidad, durabilidad y diseño en tejas metálicas y pizarras asfálticas
+        de las mejores marcas del mundo.
+      </p>
+      <a
+        href="/contacto"
+        class="bg-brand hover:bg-brand-hover text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300"
+      >
+        Solicitar Asesoramiento
+      </a>
+    </div>
+  </section>
 
-	#container {
-		font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
-		height: 100%;
-	}
+  <!-- Products Section -->
+  <section id="productos" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl">
+          Nuestras Líneas de Productos
+        </h2>
+        <p class="mt-4 text-lg text-gray-600">
+          Comercializamos en forma exclusiva productos con trayectoria
+          internacional y calidad probada.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div
+          class="bg-gray-50 rounded-lg shadow-md overflow-hidden flex flex-col"
+        >
+          <div class="relative w-full h-48">
+            <Image
+              src={bannertilcor}
+              alt="Tejas Metálicas Gravilladas TILCOR"
+              class="absolute inset-0 w-full h-full object-cover"
+              format="webp" quality={80}
+            />
+            <div class="absolute inset-0 bg-black/50"></div>
+            <div class="relative h-full flex justify-center items-center">
+              <h3
+                class="text-white text-4xl font-bold tracking-widest uppercase"
+              >
+                TILCOR
+              </h3>
+            </div>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">
+              Tejas Metálicas Gravilladas TILCOR
+            </h3>
+            <p class="text-gray-700 mb-4 text-sm">
+              Origen Neocelandés. La combinación perfecta de durabilidad, estilo
+              y rendimiento superior.
+            </p>
+            <a
+              href="/productos/tilcor"
+              class="group inline-flex items-center space-x-2 text-brand hover:text-brand-red font-semibold mt-auto"
+            >
+              <span>Ver modelos</span>
+              <ArrowRight
+                class="w-4 h-4 transition-transform duration-300 ease-in-out group-hover:translate-x-2"
+              />
+            </a>
+          </div>
+        </div>
 
-	main {
-		height: 100%;
-		display: flex;
-		justify-content: center;
-	}
+        <div
+          class="bg-gray-50 rounded-lg shadow-md overflow-hidden flex flex-col"
+        >
+          <div class="relative w-full h-48">
+            <Image
+              src={bannerverona}
+              alt="Tejas Metálicas VERONA"
+              class="absolute inset-0 w-full h-full object-cover"
+              format="webp" quality={80}
+            />
+            <div class="absolute inset-0 bg-black/50"></div>
+            <div class="relative h-full flex justify-center items-center">
+              <h3
+                class="text-white text-4xl font-bold tracking-widest uppercase"
+              >
+                VERONA
+              </h3>
+            </div>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">
+              Tejas Metálicas VERONA
+            </h3>
+            <p class="text-gray-700 mb-4 text-sm">
+              Industria Argentina. Diseño y tecnología para un techo elegante y
+              resistente a las inclemencias.
+            </p>
+            <a
+              href="/productos/verona"
+              class="group inline-flex items-center space-x-2 text-brand hover:text-brand-red font-semibold mt-auto"
+            >
+              <span>Ver modelos</span>
+              <ArrowRight
+                class="w-4 h-4 transition-transform duration-300 ease-in-out group-hover:translate-x-2"
+              />
+            </a>
+          </div>
+        </div>
 
-	#hero {
-		display: flex;
-		align-items: start;
-		flex-direction: column;
-		justify-content: center;
-		padding: 16px;
-	}
+        <div
+          class="bg-gray-50 rounded-lg shadow-md overflow-hidden flex flex-col"
+        >
+          <div class="relative w-full h-48">
+            <Image
+              src={ikobanner}
+              alt="Pizarras Asfálticas IKO"
+              class="absolute inset-0 w-full h-full object-cover"
+              format="webp" quality={80}
+            />
+            <div class="absolute inset-0 bg-black/50"></div>
+            <div class="relative h-full flex justify-center items-center">
+              <h3
+                class="text-white text-4xl font-bold tracking-widest uppercase"
+              >
+                IKO
+              </h3>
+            </div>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">
+              Pizarras Asfálticas IKO
+            </h3>
+            <p class="text-gray-700 mb-4 text-sm">
+              Origen Canadiense. Versatilidad y belleza para proyectos
+              residenciales y comerciales.
+            </p>
+            <a
+              href="/productos/iko"
+              class="group inline-flex items-center space-x-2 text-brand hover:text-brand-red font-semibold mt-auto"
+            >
+              <span>Ver modelos</span>
+              <ArrowRight
+                class="w-4 h-4 transition-transform duration-300 ease-in-out group-hover:translate-x-2"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-	h1 {
-		font-size: 22px;
-		margin-top: 0.25em;
-	}
+  <!-- Why Choose Us Section -->
+  <section class="bg-gray-100 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl">
+          ¿Por Qué Elegir Iñaki Techos?
+        </h2>
+        <p class="mt-4 text-lg text-gray-600">
+          25 años de trayectoria brindando soluciones inteligentes y
+          satisfacción al usuario.
+        </p>
+      </div>
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center"
+      >
+        <!-- Feature 1 -->
+        <div class="p-6">
+          <div
+            class="bg-brand text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4"
+          >
+            <svg
+              class="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              ><path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
+              ></path></svg
+            >
+          </div>
+          <h3 class="text-lg font-bold">25 Años de Trayectoria</h3>
+          <p class="mt-2 text-gray-600">
+            Experiencia que garantiza la mejor solución para su obra.
+          </p>
+        </div>
+        <!-- Feature 2 -->
+        <div class="p-6">
+          <div
+            class="bg-brand text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4"
+          >
+            <svg
+              class="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              ><path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+              ></path></svg
+            >
+          </div>
+          <h3 class="text-lg font-bold">Asesoramiento Técnico</h3>
+          <p class="mt-2 text-gray-600">
+            Personalizado para profesionales, empresas y particulares.
+          </p>
+        </div>
+        <!-- Feature 3 -->
+        <div class="p-6">
+          <div
+            class="bg-brand text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4"
+          >
+            <svg
+              class="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              ><path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+              ></path></svg
+            >
+          </div>
+          <h3 class="text-lg font-bold">Stock Permanente</h3>
+          <p class="mt-2 text-gray-600">
+            Disponibilidad y entrega inmediata en todo el país.
+          </p>
+        </div>
+        <!-- Feature 4 -->
+        <div class="p-6">
+          <div
+            class="bg-brand text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4"
+          >
+            <svg
+              class="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              ><path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+              ></path></svg
+            >
+          </div>
+          <h3 class="text-lg font-bold">Cómputos sin Cargo</h3>
+          <p class="mt-2 text-gray-600">
+            Calculamos los materiales exactos para tu proyecto sobre planos.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-	#links {
-		display: flex;
-		gap: 16px;
-	}
+  {/* --- SECCIÓN DE CLIENTES --- */}
+  <section class="bg-white py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl">
+          Confían en Nosotros
+        </h2>
+        <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600">
+          Grandes empresas, cadenas de hoteles y constructoras de renombre
+          eligen nuestras soluciones para sus proyectos más importantes.
+        </p>
+      </div>
 
-	#links a {
-		display: flex;
-		align-items: center;
-		padding: 10px 12px;
-		color: #111827;
-		text-decoration: none;
-		transition: color 0.2s;
-	}
+      {/* Contenedor de Logos */}
+      <div class="mt-12 flow-root">
+        <div class="-mt-4 -ml-8 flex flex-wrap justify-center lg:-ml-4">
+          {
+            /* Aquí es donde pones cada logo. He seleccionado los más impactantes de tu lista. */
+          }
+          <div
+            class="mt-4 ml-8 flex flex-shrink-0 flex-grow justify-center lg:ml-4 lg:flex-grow-0"
+          >
+            <img
+              class="h-20 filter grayscale transition duration-300 hover:grayscale-0"
+              src="https://placehold.co/200x100/FFFFFF/000000?text=SOFITEL"
+              alt="Logo de Hotel Sofitel"
+            />
+          </div>
 
-	#links a:hover {
-		color: rgb(78, 80, 86);
-	}
+          <div
+            class="mt-4 ml-8 flex flex-shrink-0 flex-grow justify-center lg:ml-4 lg:flex-grow-0"
+          >
+            <img
+              class="h-20 filter grayscale transition duration-300 hover:grayscale-0"
+              src="https://placehold.co/200x100/FFFFFF/000000?text=McDonald’s"
+              alt="Logo de McDonald's"
+            />
+          </div>
 
-	#links a svg {
-		height: 1em;
-		margin-left: 8px;
-	}
+          <div
+            class="mt-4 ml-8 flex flex-shrink-0 flex-grow justify-center lg:ml-4 lg:flex-grow-0"
+          >
+            <img
+              class="h-20 filter grayscale transition duration-300 hover:grayscale-0"
+              src="https://placehold.co/200x100/FFFFFF/000000?text=ESPLENDOR"
+              alt="Logo de Hotel Esplendor"
+            />
+          </div>
 
-	#links a.button {
-		color: white;
-		background: linear-gradient(83.21deg, #3245ff 0%, #bc52ee 100%);
-		box-shadow:
-			inset 0 0 0 1px rgba(255, 255, 255, 0.12),
-			inset 0 -2px 0 rgba(0, 0, 0, 0.24);
-		border-radius: 10px;
-	}
+          <div
+            class="mt-4 ml-8 flex flex-shrink-0 flex-grow justify-center lg:ml-4 lg:flex-grow-0"
+          >
+            <img
+              class="h-20 filter grayscale transition duration-300 hover:grayscale-0"
+              src="https://placehold.co/200x100/FFFFFF/000000?text=Stieglitz"
+              alt="Logo de Constructora Stieglitz"
+            />
+          </div>
 
-	#links a.button:hover {
-		color: rgb(230, 230, 230);
-		box-shadow: none;
-	}
+          <div
+            class="mt-4 ml-8 flex flex-shrink-0 flex-grow justify-center lg:ml-4 lg:flex-grow-0"
+          >
+            <img
+              class="h-20 filter grayscale transition duration-300 hover:grayscale-0"
+              src="https://placehold.co/200x100/FFFFFF/000000?text=SOCMER"
+              alt="Logo de Constructora Socmer"
+            />
+          </div>
 
-	pre {
-		font-family:
-			ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono',
-			monospace;
-		font-weight: normal;
-		background: linear-gradient(14deg, #d83333 0%, #f041ff 100%);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-clip: text;
-		margin: 0;
-	}
+          <div
+            class="mt-4 ml-8 flex flex-shrink-0 flex-grow justify-center lg:ml-4 lg:flex-grow-0"
+          >
+            <img
+              class="h-20 filter grayscale transition duration-300 hover:grayscale-0"
+              src="https://placehold.co/200x100/FFFFFF/000000?text=Golf+Club+Río+Cuarto"
+              alt="Logo de Golf Club Río Cuarto"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-	h2 {
-		margin: 0 0 1em;
-		font-weight: normal;
-		color: #111827;
-		font-size: 20px;
-	}
-
-	p {
-		color: #4b5563;
-		font-size: 16px;
-		line-height: 24px;
-		letter-spacing: -0.006em;
-		margin: 0;
-	}
-
-	code {
-		display: inline-block;
-		background:
-			linear-gradient(66.77deg, #f3cddd 0%, #f5cee7 100%) padding-box,
-			linear-gradient(155deg, #d83333 0%, #f041ff 18%, #f5cee7 45%) border-box;
-		border-radius: 8px;
-		border: 1px solid transparent;
-		padding: 6px 8px;
-	}
-
-	.box {
-		padding: 16px;
-		background: rgba(255, 255, 255, 1);
-		border-radius: 16px;
-		border: 1px solid white;
-	}
-
-	#news {
-		position: absolute;
-		bottom: 16px;
-		right: 16px;
-		max-width: 300px;
-		text-decoration: none;
-		transition: background 0.2s;
-		backdrop-filter: blur(50px);
-	}
-
-	#news:hover {
-		background: rgba(255, 255, 255, 0.55);
-	}
-
-	@media screen and (max-height: 368px) {
-		#news {
-			display: none;
-		}
-	}
-
-	@media screen and (max-width: 768px) {
-		#container {
-			display: flex;
-			flex-direction: column;
-		}
-
-		#hero {
-			display: block;
-			padding-top: 10%;
-		}
-
-		#links {
-			flex-wrap: wrap;
-		}
-
-		#links a.button {
-			padding: 14px 18px;
-		}
-
-		#news {
-			right: 16px;
-			left: 16px;
-			bottom: 2.5rem;
-			max-width: 100%;
-		}
-
-		h1 {
-			line-height: 1.5;
-		}
-	}
-</style>
+  <!-- Final CTA Section -->
+  <section class="bg-brand">
+    <div class="max-w-4xl mx-auto text-center py-16 px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-white sm:text-4xl">
+        <span class="block">¿Listo para comenzar su próximo proyecto?</span>
+      </h2>
+      <p class="mt-4 text-lg leading-6 text-indigo-200">
+        Nuestro equipo de expertos está listo para asistirlo en la toma de la
+        mejor decisión para su obra.
+      </p>
+      <a
+        href="/contacto"
+        class="mt-8 w-full inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-brand bg-white hover:bg-indigo-50 sm:w-auto"
+      >
+        Contactar Ahora
+      </a>
+    </div>
+  </section>
+</Layout>

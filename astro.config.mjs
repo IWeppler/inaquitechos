@@ -1,5 +1,15 @@
-// @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
+import tailwind from "@astrojs/tailwind";
+import sitemap from "@astrojs/sitemap";
+import partytown from "@astrojs/partytown";
 
-// https://astro.build/config
-export default defineConfig({});
+import react from "@astrojs/react";
+
+export default defineConfig({
+  site: "https://ignacioweppler.com/",
+  integrations: [tailwind(), sitemap(), partytown({
+    config: {
+      forward: ["gtag"],
+    },
+  }), react()],
+});

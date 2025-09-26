@@ -1,0 +1,105 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  schema?: Record<string, any>;
+}
+
+const {
+  title = "Iñaki Techos",
+  description = "Empresa especializada en la comercialización y distribución de materiales para coberturas de techos de alta tecnología.",
+  image = "/seotechos.jpg",
+  schema = null,
+} = Astro.props;
+
+const siteURL = Astro.site;
+if (!siteURL) {
+  console.warn(
+    `La propiedad 'site' no está configurada en tu archivo astro.config.mjs. Las URLs para SEO no serán absolutas.`
+  );
+}
+
+const organizationSchema: {
+  "@context": string;
+  "@type": string;
+  name: string;
+  url: string | undefined;
+  logo: string;
+  contactPoint: {
+    "@type": string;
+    telephone: string;
+    contactType: string;
+  };
+  address: {
+    "@type": string;
+    streetAddress: string;
+    addressLocality: string;
+    addressRegion: string;
+    postalCode: string;
+    addressCountry: string;
+  };
+} = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Iñaki Techos",
+  url: siteURL ? siteURL.toString() : undefined,
+  logo: siteURL ? new URL(image, siteURL).href : image,
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+54-11-4754-1222",
+    contactType: "Customer Service",
+  },
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Padre Ashkar 551",
+    addressLocality: "San Martín",
+    addressRegion: "Buenos Aires",
+    postalCode: "1672",
+    addressCountry: "AR",
+  },
+};
+
+const schemas: Array<typeof organizationSchema | Record<string, any>> = [organizationSchema];
+if (schema) {
+  schemas.push(schema);
+}
+
+const absoluteImageUrl = siteURL ? new URL(image, siteURL).href : image;
+const canonicalUrl = siteURL
+  ? new URL(Astro.url.pathname, siteURL).href
+  : Astro.url.pathname;
+
+const siteName = "Iñaki Techos";
+const pageTitle = title === siteName ? `${siteName}` : `${title} | ${siteName}`;
+const socialTitle =
+  title === siteName ? "Iñaki Techos - Especialistas en Coberturas" : title;
+---
+
+<meta charset="UTF-8" />
+<title>{pageTitle}</title>
+<link rel="canonical" href={canonicalUrl} />
+<meta name="viewport" content="width=device-width" />
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<meta name="generator" content={Astro.generator} />
+
+<meta name="description" content={description} />
+<meta name="author" content={siteName} />
+<meta
+  name="keywords"
+  content="Iñaki Techos, techos, tejas metálicas, pizarras asfálticas, tilcor, verona, iko, coberturas para techos, Buenos Aires"
+/>
+
+<meta property="og:title" content={socialTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:image" content={absoluteImageUrl} />
+<meta property="og:site_name" content={siteName} />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={socialTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={absoluteImageUrl} />
+
+<script type="application/ld+json" set:html={JSON.stringify(schemas)} />

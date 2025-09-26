@@ -1,0 +1,158 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import veronabanner2 from "../../assets/veronabanner2.webp";
+import ImageSlider from "../../components/ImageSlider.tsx";
+
+import veronanegro from "../../assets/veronanegro.jpg";
+import veronarojo from "../../assets/veronarojo.jpg";
+import veronarojo1 from "../../assets/veronarojo1.jpg";
+import {
+  Feather,
+  ShieldCheck,
+  Waves,
+  Award,
+  Sun,
+  Ban,
+  FileText,
+} from "lucide-astro";
+import veronainstalacion from "../../assets/pdf/veronainstalacion.pdf";
+
+const ventajas = [
+  {
+    title: "Ultra Livianas",
+    description:
+      "Son hasta 10 veces más livianas que las tejas tradicionales, reduciendo costos en la estructura del techo.",
+    icon: Feather,
+  },
+  {
+    title: "Resistencia Superior",
+    description:
+      "Soportan granizo y cargas de nieve. No se quiebran ni se doblan bajo condiciones climáticas adversas.",
+    icon: ShieldCheck,
+  },
+  {
+    title: "Ambientes Marinos",
+    description:
+      "Su composición las hace ideales para zonas costeras, ya que no les afectan los ambientes salitrosos.",
+    icon: Waves,
+  },
+  {
+    title: "Garantía de 10 Años",
+    description:
+      "Ofrecemos una década de garantía, asegurando la durabilidad y la tranquilidad de tu inversión.",
+    icon: Award,
+  },
+  {
+    title: "No se Decoloran",
+    description:
+      "Mantienen su color y estética a lo largo del tiempo, resistiendo la degradación por los rayos UV.",
+    icon: Sun,
+  },
+  {
+    title: "Antihongos",
+    description:
+      "El acabado superficial previene la formación de hongos y moho, manteniendo el techo limpio.",
+    icon: Ban,
+  },
+];
+const colores = ["Rojo Teja", "Negro"];
+
+const galleryImages = [veronanegro.src, veronarojo.src, veronarojo1.src];
+---
+
+<Layout
+  title="VERONA: Tejas de Acero - Iñaki Techos"
+  description="Verona, un concepto moderno que combina diseño tradicional con la alta resistencia del acero. Economía, rapidez y seguridad para tu techo."
+>
+  <section
+    class="relative h-[50vh] min-h-[400px] flex items-center justify-center text-white"
+  >
+    <div
+      class="absolute inset-0 bg-cover bg-center"
+      style={`background-image: url(${veronabanner2.src})`}
+    >
+    </div>
+    <div class="absolute inset-0 bg-black/60"></div>
+    <div
+      class="relative z-10 text-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+    >
+      <h1 class="text-4xl md:text-5xl font-bold">VERONA - Tejas de Acero</h1>
+      <p clas"mt-4 text-xl text-gray-200 max-w-3xl mx-auto">
+        Un moderno concepto en tecnología para techos que combina el diseño de
+        la teja tradicional con la alta resistencia del acero.
+      </p>
+    </div>
+  </section>
+
+  <section id="ventajas" class="py-24 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl">
+          Ventajas Principales
+        </h2>
+        <p class="mt-4 text-lg text-gray-600">
+          Economía, rapidez en instalación y una estética superior.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {
+          ventajas.map((ventaja) => {
+            const Icono = ventaja.icon;
+            return (
+              <div class="bg-gray-50 p-6 rounded-lg border border-gray-300 hover:border-brand transition-colors duration-300">
+                <div class="flex items-center">
+                  <div class="bg-brand text-white rounded-full p-3 mr-4 flex-shrink-0">
+                    <Icono class="w-6 h-6" />
+                  </div>
+
+                  <h3 class="text-xl font-bold text-gray-900">
+                    {ventaja.title}
+                  </h3>
+                </div>
+                <p class="mt-4 text-gray-700">{ventaja.description}</p>
+              </div>
+            );
+          })
+        }
+      </div>
+    </div>
+  </section>
+
+  <section id="modelo" class="py-24 bg-white border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl">
+          Modelo Verona
+        </h2>
+        <p class="mt-4 text-lg text-gray-600">
+          Un perfil único que combina fortaleza y un alto valor estético.
+        </p>
+
+        <div class="mt-10">
+          <a
+            href={veronainstalacion}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-x-3 px-6 py-3 bg-slate-100 text-slate-800 font-semibold rounded-lg border border-slate-200 transition-colors duration-300 hover:bg-slate-200 hover:border-brand"
+          >
+            <FileText class="w-5 h-5" />
+            Ver Manual de Instalación
+          </a>
+        </div>
+
+        <div class="mt-8 flex justify-center items-center flex-wrap gap-4">
+          <h4 class="font-semibold text-gray-700">COLORES DISPONIBLES:</h4>
+          {
+            colores.map((color) => (
+              <span class="bg-brand/10 text-xs font-semibold px-3 py-1.5 rounded-full uppercase border border-brand/20">
+                {color}
+              </span>
+            ))
+          }
+        </div>
+      </div>
+
+      <ImageSlider images={galleryImages} client:load />
+    </div>
+  </section>
+</Layout>
