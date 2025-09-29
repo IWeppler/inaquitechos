@@ -198,6 +198,7 @@ const modelos = [
     <div
       class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-5 gap-12 items-center"
     >
+      <!-- Texto -->
       <div class="md:col-span-3">
         <span class="text-[var(--color-brand)] font-bold uppercase"
           >Tecnología de Punta</span
@@ -236,13 +237,16 @@ const modelos = [
         </div>
       </div>
 
-      {}
+      <!-- Video vertical en lugar de imagen -->
       <div class="md:col-span-2 flex justify-center">
-        <img
-          src={zincalume.src}
-          alt="Capas del Acero Zincalume de Nueva Zelanda"
-          class="w-full max-w-sm"
-        />
+        <div
+          class="aspect-[3/4] bg-slate-200 overflow-hidden rounded-2xl shadow-xl border border-gray-300 max-w-xs"
+        >
+          <video class="w-full h-full object-cover" controls preload="metadata">
+            <source src="/videos/video.mp4" type="video/mp4" />
+            Tu navegador no soporta videos embebidos.
+          </video>
+        </div>
       </div>
     </div>
   </section>
@@ -288,7 +292,6 @@ const modelos = [
       class="w-full h-full rounded-lg"
       src=""
       title="YouTube video player"
-      frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowfullscreen></iframe>
   </div>
