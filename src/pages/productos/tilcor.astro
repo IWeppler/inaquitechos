@@ -240,18 +240,16 @@ const modelos = [
       <!-- Video vertical en lugar de imagen -->
       <div class="md:col-span-2 flex justify-center">
         <div
-          class="aspect-[3/4] bg-slate-200 overflow-hidden rounded-2xl shadow-xl border border-gray-300 max-w-xs"
+          class="aspect-[3/4] bg-slate-200 overflow-hidden border border-gray-300 max-w-md"
         >
-        {/* @ts-expect-error */}
+          {/* @ts-expect-error */}
           <video
             class="w-full h-full object-cover"
             controls
             preload="metadata"
             loading="lazy"
+            src="https://res.cloudinary.com/djqgt0lzg/video/upload/q_auto,f_auto/v1759174292/video_cruazi.mp4"
           >
-            <source src="/videos/video.webm" type="video/webm" />
-            <source src="/videos/video.mp4" type="video/mp4" />
-            Tu navegador no soporta videos embebidos.
           </video>
         </div>
       </div>
