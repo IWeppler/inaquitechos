@@ -4,7 +4,7 @@ Este repositorio contiene el código fuente del sitio web institucional de Iñaq
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/[ID_DE_TU_BADGE_EN_NETLIFY]/deploy-status)](https://app.netlify.com/sites/[NOMBRE_DE_TU_SITIO]/deploys)
 
-**Sitio en vivo:** [https://www.inaquitechos.com.ar](https://www.inaquitechos.com.ar)
+**Sitio en vivo:** [https://www.inaquitechos.com.ar](https://www.inaki.com.ar)
 
 ---
 
