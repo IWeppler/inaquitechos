@@ -1,6 +1,5 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { CirclePlay, FileText, Book } from "lucide-astro";
 import classiclisbon from "../../assets/classiclisbon.jpg";
 import tudor from "../../assets/tudor.jpg";
 import shake01 from "../../assets/shake01.jpg";
@@ -14,7 +13,6 @@ import tilcornegro3 from "../../assets/tilcornegro3.jpg";
 import tilcornegro4 from "../../assets/tilcornegro4.jpg";
 import tilcornegro5 from "../../assets/tilcornegro5.jpg";
 import tilcornegro6 from "../../assets/tilcornegro6.jpg";
-import zincalume from "../../assets/zincalume.jpg";
 import tilcobanner2 from "../../assets/tilcobanner2.webp";
 import ProductTabs from "../../components/ModelosTab.tsx";
 
@@ -28,6 +26,7 @@ import { Image } from "astro:assets";
 
 import tilcorInfo from "../../assets/pdf/tilcorinfo.pdf";
 import tilcorManual from "../../assets/pdf/tilcorinstalacion.pdf";
+import { CirclePlay, Book, FileText } from "lucide-astro";
 
 const ventajas = [
   {
@@ -247,7 +246,7 @@ const modelos = [
     modelos={modelos}
     client:load
     productName="Tilcor"
-    title="5 Perfiles Distintivos"
+    title="4 Perfiles Distintivos"
     subtitle="Cada perfil reproduce estilos tradicionales con la resistencia incomparable del acero de Nueva Zelanda."
   />
 </Layout>
